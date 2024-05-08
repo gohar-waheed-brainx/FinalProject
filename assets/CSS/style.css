@@ -1,0 +1,192 @@
+body {
+    background-color: #FFFDF7;
+    font: normal normal medium 36px/48px Roboto;
+}
+
+.meal-price-text {
+    color: #D75D33;
+}
+
+.total-meals-card-img-top {
+    cursor: pointer;
+    transition: transform .2s;
+}
+
+.total-meals-card-img-top:hover {
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.shipping-text-btn:hover {
+    width: 390px !important;
+}
+
+/* Apply bold font weight to accordion buttons */
+.accordion-button {
+    font-weight: bold;
+}
+
+.accordion-button.collapsed::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23D75D33'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.accordion-button:not(.collapsed) {
+    color: #D75D33;
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23D75D33'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.list-group-item:hover{
+    margin-left: 7px;
+}
+
+.delievery-day-hr {
+    margin: 5rem !important;
+}
+
+.checkout-btn {
+    width: 100%; /* Make the button width 100% of its container */
+    /* max-width: 30rem; Set maximum width for larger screens */
+}
+
+.divider {
+    border-left: 1px solid #b6b3b3;
+    height: 30px;
+}
+
+
+.step-btn button:disabled {
+    opacity: 0.6; /* Adjust the opacity value as needed */
+}
+
+.counter {
+    background-color: #D75D33;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 17px;
+    height: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px; /* Adjust spacing as needed */
+}
+  
+
+@media only screen and (max-width: 992px) {
+    .top-nav {
+        gap: 9px !important;
+        font-size: 13px;
+    }
+    .main-paragraph {
+        padding: 0 !important;
+        padding-bottom: 15px !important;
+    }
+    .meals-quantity-card{
+        width: 167px !important;
+        height: 125px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .offer-text {
+        width: 60% !important;
+        font-size: 11px !important;
+    }
+    .meals-pack-container,.meals-pack-row {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .meal-pack {
+        margin-bottom: 95px !important ;
+        padding: 0 4px;
+    }
+
+    h5 {
+        font-size: 15px !important;
+    }
+
+    .list-group-item {
+        font-size: 13px !important;
+    }
+
+    .per-week-text {
+        font-size: 10px !important;
+    }
+    .shipping-text {
+        margin-top: 20px !important;
+    }
+    .shipping-text-btn {
+        width: 100% !important;
+    }
+    .meal-delievery-card{
+        width: auto !important;
+        height: 17rem !important;
+        margin: 0px 36px !important;
+        margin-top: 40px !important;
+    }
+    .delievery-day-hr {
+        margin: 3rem 0 !important;
+    }
+    .accordion {
+        margin: 3rem 0 !important;
+        padding: 0 !important;
+    }
+    .checkout-form {
+        margin: 0 !important;
+        padding: 10px !important;
+    }
+    .checkout-btn {
+        max-width: none; /* Remove max-width for smaller screens */
+    }
+    .order-summary-card{
+        width: 100% !important;
+    }
+    .main-cart{
+      display: none !important;
+    }
+    .meals-cards{
+        width: auto !important;
+    }
+    .add-btn {
+        width: 20% !important;
+    }
+    .cart-column{
+        background: transparent !important;
+    }
+}
+
+@media only screen and (min-width: 993px) and (max-width: 1366px) {
+    .main-paragraph {
+        padding: 0 !important;
+        padding-bottom: 15px !important;
+    }
+    .card{
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .offer-text {
+        width: 60% !important;
+        font-size: 11px !important;
+    }
+    .meals-pack-container,.meals-pack-row {
+        margin: 0 60px !important;
+        padding: 0 47px !important;
+    }
+    .meal-pack {
+        margin-bottom: 95px !important ;
+    }
+    .meal-delievery-card{
+        width: auto !important;
+        height: 17rem !important;
+        margin: 0px 36px !important;
+        margin-top: 40px !important;
+    }
+    .delievery-day-hr {
+        margin: 3rem 0 !important;
+    }
+    .accordion {
+        margin: 3rem 0 !important;
+        padding: 0 !important;
+    }
+}
