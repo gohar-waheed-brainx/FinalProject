@@ -4,6 +4,26 @@ $(document).ready(function () {
   var currentStep = 0;
   var visitedSteps = [];
 
+  // Get all list items
+var listItems = document.querySelectorAll('.delievery-date-btn');
+
+// Add click event listener to each list item
+listItems.forEach(function(item) {
+    item.addEventListener('click', function() {
+        // Remove any existing 'clicked' class from other items
+        listItems.forEach(function(item) {
+            item.classList.remove('clicked');
+        });
+        
+        // Add 'clicked' class to the clicked item
+        this.classList.add('clicked');
+    });
+});
+
+$('.promo-code').click(function(){
+  $('.promo-input').collapse('toggle');
+});
+
   // Initially hide all sections except the first one
   $("#final-project section").not(":first").hide();
 
@@ -147,50 +167,11 @@ function updateOrderSummary() {
   }
 }
 
-// Function to handle the click event on the plus icon
-$(document).on('click', '.fa-plus', function() {
-// Find the parent list item
-var listItem = $(this).closest('.list-group-item');
-
-// Find the counter element within the list item
-var counterElement = listItem.find('.counter');
-
-// Get the current counter value
-var counter = parseInt(counterElement.text());
-
-// Increment the counter
-counter++;
-
-// Update the counter value
-counterElement.text(counter);
-
-localStorage.setItem("currentMealCount", counter);
-updateOrderSummary();
-});
-
 // Function to handle the click event on the minus icon
 $(document).on('click', '.fa-minus', function() {
 // Find the parent list item
 var listItem = $(this).closest('.list-group-item');
-
-// Find the counter element within the list item
-var counterElement = listItem.find('.counter');
-
-// Get the current counter value
-var counter = parseInt(counterElement.text());
-
-// Decrement the counter
-counter--;
-
-// Update the counter value
-counterElement.text(counter);
-
-// If the counter reaches zero, remove the list item
-if (counter === 0) {
-    listItem.remove();
-}
-
-localStorage.setItem("currentMealCount", counter);
+listItem.remove();
 updateOrderSummary();
 });
 
@@ -244,11 +225,9 @@ $('.add-btn').click(function() {
     // Create a new list item with the meal details
     var listItem = '<li class="list-group-item border-0" style="' + (isSpecialCard ? 'background-color: black;' : '') + '">' +
     '<div style="display: flex; flex-direction: row; justify-content: space-between; background-color: ' + (isSpecialCard ? 'black;' : '#F3F3F3;') + '">' +
-        // Counter element
-        '<div class="counter">1</div>' +
         '<div style="display: flex; flex-direction: row; gap: 3px;">' +
             '<img src="' + mealImage + '" alt="Meal">' +
-            '<span class="pt-4" style="font-size: 14px; color: ' + (isSpecialCard ? 'white;' : 'black;') + '">' +
+            '<span class="pt-4" style="font-size: 13px; color: ' + (isSpecialCard ? 'white;' : 'black;') + '">' +
                 '<b>' + mealName + '</b>' +
             '</span>' +
         '</div>' +

@@ -3,6 +3,31 @@ body {
     font: normal normal medium 36px/48px Roboto;
 }
 
+#final-project{
+    font-family: Roboto, sans-serif;
+}
+
+.top-nav-bar {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: center; 
+    padding-top: 20px; 
+    gap: 22px;
+}
+
+.main-paragraph {
+    padding: 0 350px;
+}
+
+.meals-quantity-card{
+    width: 278px; 
+    height: 209px;
+}
+
+.shipping-text{
+    margin-top: 100px;
+}
+
 .meal-price-text {
     color: #D75D33;
 }
@@ -16,17 +41,63 @@ body {
     transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
+.shipping-text-btn {
+    width: 150px; 
+    height: 35px; 
+    background: transparent linear-gradient(119deg, #AF2081 0%, #533174 100%) 0% 0% no-repeat padding-box;
+}
+
 .shipping-text-btn:hover {
     width: 390px !important;
 }
 
+
+.delievery-dates-container{
+    width: 24rem;
+}
+
+.delievery-dates-li {
+    cursor: pointer; 
+    border: 1px solid #707070 !important; 
+    font-size: 12px;
+    border-bottom: 0px !important;
+}
+
+.delievery-date-most-popular, .order-summary-card-li, .cart-summary-li, .bottom-cart-content {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-between;
+}
+
+.delievery-date-most-popular-text {
+    color: #D75D33; 
+    font-size: 10px;
+}
+.meal-delievery-card {
+    width: 300px; 
+    height: 255px; 
+    margin: 0 auto; 
+    float: none; 
+    background-color: #D75D33;
+}
+
+.section-2-next-btn {
+    width: 19rem; 
+    height: 35px; 
+    background: transparent linear-gradient(119deg, #AF2081 0%, #533174 100%) 0% 0% no-repeat padding-box;
+    font-size: 14px;
+}
+
+
 /* Apply bold font weight to accordion buttons */
-.accordion-button {
+.accordion-button, .accordion-collapse {
     font-weight: bold;
+    background-color: #FFFDF7 !important; 
+    font-size: 14px;
 }
 
 .accordion-button.collapsed::after {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23D75D33'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 17 30' fill='%23D75D33'%3E%3Cpath d='M12 15a1 1 0 0 1-.707-.293l-4-4a1 1 0 1 1 1.414-1.414L12 12.586l3.293-3.293a1 1 0 0 1 1.414 1.414l-4 4A1 1 0 0 1 12 15z'/%3E%3C/svg%3E");
 }
 
 .accordion-button:not(.collapsed) {
@@ -34,10 +105,27 @@ body {
 }
 
 .accordion-button:not(.collapsed)::after {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23D75D33'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 17 30' fill='%23D75D33'%3E%3Cpath d='M12 15a1 1 0 0 1-.707-.293l-4-4a1 1 0 1 1 1.414-1.414L12 12.586l3.293-3.293a1 1 0 0 1 1.414 1.414l-4 4A1 1 0 0 1 12 15z'/%3E%3C/svg%3E");
 }
 
-.list-group-item:hover{
+.row {
+    --bs-gutter-x: 0 !important;
+}
+
+.checkout-form-row {
+    --bs-gutter-x: 1rem !important;
+}
+
+form label {
+    font-size: 14px;
+}
+
+.meals-cards-body{
+    padding: 0.8rem 0.5rem !important;
+}
+
+.delievery-date-btn:hover,
+.delievery-date-btn.clicked {
     margin-left: 7px;
 }
 
@@ -46,8 +134,9 @@ body {
 }
 
 .checkout-btn {
-    width: 100%; /* Make the button width 100% of its container */
-    /* max-width: 30rem; Set maximum width for larger screens */
+    width: 100%;
+    height: 40px; 
+    background: transparent linear-gradient(119deg, #AF2081 0%, #533174 100%) 0% 0% no-repeat padding-box;
 }
 
 .divider {
@@ -55,26 +144,117 @@ body {
     height: 30px;
 }
 
+.order-summary-card {
+    width: 100%;
+}
+
+.promo-code {
+    color: #3167FF; 
+    text-decoration: underline; 
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.my-meals-summary-card-li {
+    display: flex; 
+    flex-direction: row; 
+    gap: 15px;
+}
+
+.my-meals-summary-card-li-content {
+    display: flex !important; 
+    flex-direction: column !important;
+}
+
+.my-meals-summary-ingredients {
+    color: #707070; 
+    font-size: 10px;
+}
+
+.promo-input {
+    display: none;
+}
 
 .step-btn button:disabled {
     opacity: 0.6; /* Adjust the opacity value as needed */
 }
 
-.counter {
-    background-color: #D75D33;
+.meals-cards {
+    width: 233px; 
+    height: 242px;
+    margin-bottom: 10px !important;
+}
+
+.meal-cards-minerals {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-between; 
+    font-size: 10px; 
+    color: #707070;
+}
+
+.special-meal-card {
+    width: 233px; 
+    height: 242px; 
+    background: black;
+}
+
+.add-btn {
+    font-size: 12px; 
+    background: transparent linear-gradient(119deg, #AF2081 0%, #533174 100%) 0% 0% no-repeat padding-box; 
+    margin-bottom: 10px; 
+    margin-left: 3px;
+}
+
+.special-meal-card-overlay {
+    margin-top: 7.3rem !important; 
+    padding: 0;
+}
+
+.special-meal-card-overlay-price {
+    font-size: 12px; 
+    background: #D75D33;
+}
+
+.special-meal-card-title {
+    font-size: 14px; 
     color: white;
-    font-weight: bold;
-    border-radius: 50%;
-    width: 17px;
-    height: 17px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 10px; /* Adjust spacing as needed */
+}
+
+.special-meal-card-ingredients {
+    font-size: 12px; 
+    color: white;
+}
+
+.special-meal-card-minerals {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-between; 
+    font-size: 10px; color: white;
+}
+
+.clear-all-btn {
+    font-size: 12px; 
+    color: #3167FF;
+}
+
+.bottom-cart {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    border-radius: 15px; 
+    margin-top: auto;
+}
+
+.next-cart-btn {
+    height: 40px; 
+    background: transparent linear-gradient(119deg, #AF2081 0%, #533174 100%) 0% 0% no-repeat padding-box;
 }
   
-
 @media only screen and (max-width: 992px) {
+    .next-button {
+        width: 19.7rem !important;
+    }
     .top-nav {
         gap: 9px !important;
         font-size: 13px;
@@ -99,7 +279,6 @@ body {
     }
     .meal-pack {
         margin-bottom: 95px !important ;
-        padding: 0 4px;
     }
 
     h5 {
@@ -154,9 +333,15 @@ body {
     .cart-column{
         background: transparent !important;
     }
+    #checkout{
+        margin : 0 12px !important
+    }
 }
 
 @media only screen and (min-width: 993px) and (max-width: 1366px) {
+    .next-button {
+        width: 19.7rem !important;
+    }
     .main-paragraph {
         padding: 0 !important;
         padding-bottom: 15px !important;
@@ -170,8 +355,12 @@ body {
         font-size: 11px !important;
     }
     .meals-pack-container,.meals-pack-row {
-        margin: 0 60px !important;
-        padding: 0 47px !important;
+        padding: 0 0 !important;
+    }
+    .meals-quantity-card{
+        width: 228px !important;
+        height: 125px !important;
+        margin-left: 12px !important;
     }
     .meal-pack {
         margin-bottom: 95px !important ;
@@ -188,5 +377,19 @@ body {
     .accordion {
         margin: 3rem 0 !important;
         padding: 0 !important;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .meals-pack-container,.meals-pack-row {
+        padding: 0 0 !important;
+    }
+    .meals-quantity-card{
+        width: 268px !important;
+        height: 125px !important;
+        margin-left: 12px !important;
+    }
+    .meal-pack {
+        margin-bottom: 95px !important ;
     }
 }
