@@ -168,14 +168,15 @@ $(document).ready(function () {
 
     // Adjust the counts
     regularMealCount -= 2; // Exclude the clear button and order summary
-    specialMealCount--; // Exclude the order summary
 
     // Ensure counts are not negative
     if (regularMealCount < 0) regularMealCount = 0;
-    if (specialMealCount < 0) specialMealCount = 0;
+
+    // Calculate the subtotal price for regular meals
+    var regularSubtotal = regularMealCount * 14;
 
     // Calculate the subtotal price
-    var subtotalPrice = (regularMealCount * 14) + (specialMealCount * 11.49);
+    var subtotalPrice = regularSubtotal + (specialMealCount * 11.49);
 
     localStorage.setItem("totalPrice", subtotalPrice);
     localStorage.setItem("mealCartCount", mealCount);
@@ -185,9 +186,9 @@ $(document).ready(function () {
 
     // Update the subtotal price in the order summary
     var specialMealDisplay = specialMealCount > 0 ? `+ $${(specialMealCount * 11.49).toFixed(2)}` : '';
-    $('.main-cart .order-summary .subtotal').html('<b>$' + subtotalPrice.toFixed(2) + ' ' + specialMealDisplay + '</b>');
-    $('.main-cart .order-summary .subtotal-meal').html('$' + subtotalPrice.toFixed(2) + ' ' + specialMealDisplay);
-    $('.bottom-cart .cart-subtotal span').html('$' + subtotalPrice.toFixed(2) + ' ' + specialMealDisplay);
+    $('.main-cart .order-summary .subtotal').html('<b>$' + subtotalPrice.toFixed(2) + '</b>');
+    $('.main-cart .order-summary .subtotal-meal').html('$' + regularSubtotal.toFixed(2) + ' ' + specialMealDisplay + '');
+    $('.bottom-cart .cart-subtotal span').html('$' + subtotalPrice.toFixed(2));
 
     // Update the count after the cart icon
     $('.bottom-cart .cart-icon-count').text(mealCount);
