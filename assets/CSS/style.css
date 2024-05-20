@@ -7,17 +7,29 @@ body {
     font-family: Roboto, sans-serif;
 }
 
+.meals-packages-top-heading-paragrapgh-container {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    padding: 0 22rem;
+}
+
 .top-nav-bar {
     display: flex; 
     flex-direction: row; 
     justify-content: center; 
     padding-top: 20px; 
     gap: 22px;
+    font-size: 13px;
 }
 
-.main-paragraph {
-    padding: 0 350px;
+.meals-packages-packs {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 12px;
 }
+
 
 .meals-quantity-card{
     width: 278px; 
@@ -43,7 +55,7 @@ body {
 
 .shipping-text-btn {
     width: 150px; 
-    height: 35px; 
+    height: 42px; 
     background: transparent linear-gradient(119deg, #AF2081 0%, #533174 100%) 0% 0% no-repeat padding-box;
 }
 
@@ -58,9 +70,10 @@ body {
 
 .delievery-dates-li {
     cursor: pointer; 
-    border: 1px solid #707070 !important; 
     font-size: 12px;
-    border-bottom: 0px !important;
+    border-left: 1px solid #707070 !important;
+    border-top: 1px solid #707070 !important;
+    border-bottom: none !important ;
 }
 
 .delievery-date-most-popular, .order-summary-card-li, .cart-summary-li, .bottom-cart-content {
@@ -78,18 +91,22 @@ body {
     height: 255px; 
     margin: 0 auto; 
     float: none; 
-    background-color: #D75D33;
+    background-color: transparent;
+    border-bottom: none !important ;
 }
 
 .section-2-next-btn {
     width: 19rem; 
-    height: 35px; 
+    height: 40px; 
     background: transparent linear-gradient(119deg, #AF2081 0%, #533174 100%) 0% 0% no-repeat padding-box;
     font-size: 14px;
 }
 
 
 /* Apply bold font weight to accordion buttons */
+.accordion-body {
+    padding: 1rem 5.2rem !important;
+}
 .accordion-button, .accordion-collapse {
     font-weight: bold;
     background-color: #FFFDF7 !important; 
@@ -113,7 +130,7 @@ body {
 }
 
 .checkout-form-row {
-    --bs-gutter-x: 1rem !important;
+    --bs-gutter-x: 0.9rem !important;
 }
 
 form label {
@@ -124,9 +141,21 @@ form label {
     padding: 0.8rem 0.5rem !important;
 }
 
-.delievery-date-btn:hover,
+/* .delievery-date-btn-container {
+    background-color: #D75D33;
+} */
+
+.clicked-parent {
+    background-color: #D75D33;
+}
+
 .delievery-date-btn.clicked {
-    margin-left: 7px;
+    margin-left: 5px;
+}
+
+.delievery-date-btn:hover {
+    /* Ensure only margin change on hover */
+    margin-left: 5px;
 }
 
 .delievery-day-hr {
@@ -146,6 +175,7 @@ form label {
 
 .order-summary-card {
     width: 100%;
+    border-radius: 0 !important;
 }
 
 .promo-code {
@@ -158,17 +188,42 @@ form label {
 .my-meals-summary-card-li {
     display: flex; 
     flex-direction: row; 
-    gap: 15px;
+    justify-content: start;
+    gap: 18px;
+    padding: 0.3rem 1rem !important;
+}
+
+.img-container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.bottom-left {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    font-size: 12px;
+    background-color: #D75D33;
+    border-color: transparent !important;
+    padding: 2px 3px !important;
+}
+
+.my-meals-summary-card-li-quantity {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
 }
 
 .my-meals-summary-card-li-content {
     display: flex !important; 
     flex-direction: column !important;
+    justify-content: center !important;
 }
 
 .my-meals-summary-ingredients {
     color: #707070; 
-    font-size: 10px;
+    font-size: 12px;
 }
 
 .promo-input {
@@ -179,10 +234,22 @@ form label {
     opacity: 0.6; /* Adjust the opacity value as needed */
 }
 
+.meals-cards-row {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 8px;
+}
+
 .meals-cards {
     width: 233px; 
     height: 242px;
     margin-bottom: 10px !important;
+    border-radius: 0px !important;
+}
+
+.meal-card-img {
+    height: 135px;
 }
 
 .meal-cards-minerals {
@@ -204,6 +271,10 @@ form label {
     background: transparent linear-gradient(119deg, #AF2081 0%, #533174 100%) 0% 0% no-repeat padding-box; 
     margin-bottom: 10px; 
     margin-left: 3px;
+}
+
+.checkout-section-container {
+    margin-left: 5rem !important;
 }
 
 .special-meal-card-overlay {
@@ -250,6 +321,18 @@ form label {
     height: 40px; 
     background: transparent linear-gradient(119deg, #AF2081 0%, #533174 100%) 0% 0% no-repeat padding-box;
 }
+
+.zip-code-change {
+    color: #3167FF; 
+    text-decoration: underline; 
+    font-size: 13px; 
+    cursor: pointer;
+}
+
+.section-4-divider {
+    margin-left: 4rem !important;
+    margin-right: 5rem !important;
+}
   
 @media only screen and (max-width: 992px) {
     .next-button {
@@ -259,32 +342,32 @@ form label {
         gap: 9px !important;
         font-size: 13px;
     }
-    .main-paragraph {
-        padding: 0 !important;
-        padding-bottom: 15px !important;
+    .meals-packages-top-heading-paragrapgh-container {
+        padding: 0;
+    }
+    .meals-packages-heading {
+        padding: 0 4rem;
+    }
+    .meals-packages-paragraph {
+        padding: 0 1.5rem;
+    }
+    .meals-packages-packs {
+        gap: 8px;
     }
     .meals-quantity-card{
         width: 167px !important;
         height: 125px !important;
-        margin: 0 !important;
-        padding: 0 !important;
     }
     .offer-text {
         width: 60% !important;
         font-size: 11px !important;
     }
-    .meals-pack-container,.meals-pack-row {
-        margin: 0 !important;
-        padding: 0 !important;
-    }
     .meal-pack {
         margin-bottom: 95px !important ;
     }
-
     h5 {
-        font-size: 15px !important;
+        font-size: 19px !important;
     }
-
     .list-group-item {
         font-size: 13px !important;
     }
@@ -311,9 +394,15 @@ form label {
         margin: 3rem 0 !important;
         padding: 0 !important;
     }
+    .accordion-body {
+        padding: 1rem 1.2rem !important;
+    }
     .checkout-form {
-        margin: 0 !important;
-        padding: 10px !important;
+        margin: 2rem 0 !important;
+        padding: 0 !important;
+    }
+    .checkout-heading, .order-summary-heading, .my-meals-heading {
+        font-size: 30px;
     }
     .checkout-btn {
         max-width: none; /* Remove max-width for smaller screens */
@@ -336,31 +425,48 @@ form label {
     #checkout{
         margin : 0 12px !important
     }
+    .checkout-section-container {
+        margin : 0 !important
+    }
+    .section-4-divider {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    .checkout-form-row {
+        padding: 0 0.6rem !important;
+    }
+}
+
+@media (min-width:768px) {
+    .checkout-form {
+        margin:  0 !important;
+        padding: 0 1.5rem !important;
+    }
+    .my-meals-summary-card-li {
+        padding: 0 !important;
+    }
 }
 
 @media only screen and (min-width: 993px) and (max-width: 1366px) {
     .next-button {
         width: 19.7rem !important;
     }
-    .main-paragraph {
-        padding: 0 !important;
-        padding-bottom: 15px !important;
-    }
-    .card{
-        margin: 0 !important;
-        padding: 0 !important;
-    }
     .offer-text {
-        width: 60% !important;
+        width: 40% !important;
         font-size: 11px !important;
     }
-    .meals-pack-container,.meals-pack-row {
-        padding: 0 0 !important;
+    .meals-packages-top-heading-paragrapgh-container,.meals-packages-heading {
+        padding: 0;
+    } 
+    .meals-packages-paragraph {
+        padding: 0px 9.5rem !important;
+    }
+    .meals-packages-packs {
+        gap: 8px;
     }
     .meals-quantity-card{
-        width: 228px !important;
+        width: 238px !important;
         height: 125px !important;
-        margin-left: 12px !important;
     }
     .meal-pack {
         margin-bottom: 95px !important ;
@@ -378,18 +484,71 @@ form label {
         margin: 3rem 0 !important;
         padding: 0 !important;
     }
+    .accordion-body {
+        padding: 1rem 1.2rem !important;
+    }
+    .checkout-section-container {
+        margin-left : 1rem !important
+    }
+    .section-4-divider {
+        margin-left: 1rem !important;
+        margin-right: 2rem !important;
+    }
+    .my-meals-summary-card-li {
+        padding: 0.3rem 1rem !important;
+    }
+    .meals-cards,.special-meal-card {
+        width: 216px;
+    }
+    .meals-cards-body {
+        padding: 0.9rem 0.1rem !important;
+    }
 }
 
-@media only screen and (min-width: 1200px) {
-    .meals-pack-container,.meals-pack-row {
-        padding: 0 0 !important;
+@media only screen and (min-width: 1025px) {
+    .meals-packages-top-heading-paragrapgh-container,.meals-packages-heading{
+        padding: 0;
+    } 
+    .meals-packages-paragraph {
+        padding: 0px 14.6rem !important;    
     }
-    .meals-quantity-card{
-        width: 268px !important;
-        height: 125px !important;
-        margin-left: 12px !important;
+    .accordion-body {
+        padding: 1rem 1rem !important;
     }
-    .meal-pack {
-        margin-bottom: 95px !important ;
+    .checkout-section-container {
+        margin-left : 3rem !important
+    }
+    .section-4-divider {
+        margin-left: 2rem !important;
+        margin-right: 3rem !important;
+    }
+    .my-meals-summary-card-li {
+        padding: 0.3rem 1rem !important;
     }
 }
+
+@media only screen and (min-width: 1280px) {
+    .meals-packages-top-heading-paragrapgh-container,.meals-packages-heading {
+        padding: 0;
+    } 
+    .meals-packages-paragraph {
+        padding: 0px 18.5rem !important;
+    }
+    .accordion-body {
+        padding: 1rem 5rem !important;
+    }
+    .checkout-section-container {
+        margin-left : 5rem !important
+    }
+    .section-4-divider {
+        margin-left: 4rem !important;
+        margin-right: 5rem !important;
+    }
+    .my-meals-summary-card-li {
+        padding: 0.3rem 1rem !important;
+    }
+}
+
+
+
+

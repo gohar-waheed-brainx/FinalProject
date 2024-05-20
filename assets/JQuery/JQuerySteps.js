@@ -4,7 +4,7 @@ $(document).ready(function () {
   var currentStep = 0;
   var visitedSteps = [];
 
-  // Get all list items
+// Get all list items
 var listItems = document.querySelectorAll('.delievery-date-btn');
 
 // Add click event listener to each list item
@@ -17,8 +17,22 @@ listItems.forEach(function(item) {
         
         // Add 'clicked' class to the clicked item
         this.classList.add('clicked');
+
+        // Remove 'clicked-parent' class from all parent divs
+        var allParentDivs = document.querySelectorAll('.clicked-parent');
+        allParentDivs.forEach(function(div) {
+            div.classList.remove('clicked-parent');
+        });
+
+        // Apply the 'clicked-parent' class to the parent div of the clicked item
+        var parentDiv = this.closest('.delievery-date-btn-container');
+        if (parentDiv) {
+            parentDiv.classList.add('clicked-parent');
+        }
     });
 });
+
+
 
 $('.promo-code').click(function(){
   $('.promo-input').collapse('toggle');
