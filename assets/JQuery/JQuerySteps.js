@@ -43,8 +43,9 @@ $(document).ready(function () {
       });
   });
 
-  $('.promo-code').click(function(){
-    $('.promo-input').collapse('toggle');
+  $('#promo-code-button').click(function() {
+    $(this).hide();
+    $('#promo-code-input').show().focus();
   });
 
   // Initially hide all sections except the first one
@@ -103,21 +104,27 @@ $(document).ready(function () {
     }
     console.log("Selected Date : ", deliveryDate);
 
-    // Update the text in the last span element
-    var mealPlan = localStorage.getItem("selectedPlan");
-    var mealCount = localStorage.getItem("mealCartCount");
+  // Update the text in the last span element
+  var mealPlan = parseInt(localStorage.getItem("selectedPlan"), 10);
+  var mealCount = parseInt(localStorage.getItem("mealCartCount"), 10);
     if (mealPlan > mealCount) {
       // Disable the next button
       $(".next-cart-btn").prop("disabled", true);
-      $(".border.p-3.bg-white span.text-center").html("Please add <b>" + (mealPlan - mealCount) + " more</b> meals.");
+      $(".border.p-3.bg-white span.text-center").html("Please add <b>" + Math.abs(mealPlan - mealCount) + " more</b> meals.");
   } else if (mealPlan === mealCount) {
       // Enable the next button
       $(".next-cart-btn").prop("disabled", false);
       $(".border.p-3.bg-white span.text-center").html("<b>Ready to go!</b>");
-  } else {
+  } else if (mealPlan < mealCount) {
+    console.log("Meal Plan", mealPlan);
+    console.log("Meal Count", mealCount);
       // Disable the next button
       $(".next-cart-btn").prop("disabled", true);
-      $(".border.p-3.bg-white span.text-center").html("Please remove <b>" + (mealCount - mealPlan) + " meal</b> to continue.");
+      $(".border.p-3.bg-white span.text-center").html("Please remove <b>" + Math.abs(mealPlan - mealCount) + " meal</b> to continue.");
+  } else if (mealPlan || mealCount) {
+     // Disable the next button
+     $(".next-cart-btn").prop("disabled", true);
+     $(".border.p-3.bg-white span.text-center").html("Please add <b>" + mealPlan + " more</b> meals.");
   }
 
     // Update the text in the first list item with the date from local storage

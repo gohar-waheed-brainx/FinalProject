@@ -256,7 +256,7 @@
                   <!-- Cards will be injected here by JavaScript -->
                 </div>
               </div>
-              <div class="col-md-3 sticky-md-top sticky-cart">
+              <div class="col-md-3 sticky-md-top fixed-bottom sticky-cart">
                 <div class="cart-column card border-0 shadow-sm bg-body rounded h-100">
                   <ul class="list-group list-group-flush cart-items">
                     <div class="main-cart">
@@ -376,12 +376,9 @@
                       <div class="order-summary-card card mt-4 border">
                         <ul class="list-group list-group-flush">
                           <li class="list-group-item">
-                            <!-- Use Bootstrap's data-toggle and data-target attributes -->
-                            <button class="promo-code btn btn-link" data-toggle="collapse" data-target="#promoInput">+ Add Promo Code</button>
-                            <div id="promoInput" class="promo-input collapse">
-                                <input type="text" class="form-control" placeholder="Enter Promo Code">
-                            </div>
-                        </li>
+                            <button id="promo-code-button" class="promo-code btn btn-link">+ Add Promo Code</button>
+                            <input id="promo-code-input" type="text" class="form-control" placeholder="Enter Promo Code" style="display: none;">
+                          </li>                
                           <li class="list-group-item">
                             <label for="delievery-date" class="form-label fw-bold" style="font-size: 14px;">Delievery Date</label>
                             <input type="text" class="form-control bg-transparent" id="delievery-date" value="Monday Jun, 19" readonly>

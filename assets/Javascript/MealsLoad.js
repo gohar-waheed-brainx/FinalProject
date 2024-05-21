@@ -355,6 +355,7 @@ const mealsData = [
 function createMealCard(meal) {
     const cardDiv = document.createElement('div');
     cardDiv.classList.add('card', 'text-start', 'mb-3', 'pb-0', 'meals-cards');
+    cardDiv.style.backgroundColor = 'transparent';
 
     if (meal.special) {
         cardDiv.classList.add('special-meal-card');
@@ -385,7 +386,7 @@ function createMealCard(meal) {
     }
 
     const cardTitle = document.createElement('h5');
-    cardTitle.classList.add('card-title', 'fw-bold');
+    cardTitle.classList.add('card-title', 'fw-bold','meal-card-heading');
     cardTitle.style.fontSize = "14px";
     cardTitle.textContent = meal.title;
     cardTitle.style.color = meal.special ? 'white' : 'black'; // Set text color based on meal type
@@ -394,12 +395,12 @@ function createMealCard(meal) {
     const ingredientsP = document.createElement('p');
     ingredientsP.classList.add(meal.special ? 'special-meal-card-ingredients' : 'my-meals-summary-ingredients');
     ingredientsP.textContent = meal.ingredients;
-    ingredientsP.style.color = meal.special ? 'white' : 'black'; // Set text color based on meal type
+    ingredientsP.style.color = meal.special ? 'white' : '#707070'; // Set text color based on meal type
     cardBody.appendChild(ingredientsP);
 
     const mineralsDiv = document.createElement('div');
     mineralsDiv.classList.add(meal.special ? 'special-meal-card-minerals' : 'meal-cards-minerals');
-    mineralsDiv.style.color = meal.special ? 'white' : 'black'; // Set text color based on meal type
+    mineralsDiv.style.color = meal.special ? 'white' : '#707070'; // Set text color based on meal type
     mineralsDiv.innerHTML = `
         <span>Gluten Free</span>
         <div class="divider m-2 mt-0"></div>

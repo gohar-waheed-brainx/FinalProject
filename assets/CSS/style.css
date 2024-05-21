@@ -238,7 +238,7 @@ form label {
     display: flex; 
     flex-wrap: wrap; 
     justify-content: center; 
-    gap: 8px;
+    gap: 12px;
 }
 
 .meals-cards {
@@ -340,10 +340,8 @@ form label {
 }
 
 .sticky-cart {
-    position: sticky !important;
-    top: 0 !important; /* Adjust this value as needed */
     z-index: 1020 !important; /* Ensure it appears above other content if necessary */
-  }
+}
   
 .cart-column {
     display: flex !important;
@@ -360,6 +358,7 @@ form label {
 .bottom-cart {
     flex-shrink: 0 !important; /* Ensures the bottom cart doesn't shrink */
 }
+
   
   
 @media only screen and (max-width: 992px) {
@@ -435,6 +434,9 @@ form label {
     .checkout-btn {
         max-width: none; /* Remove max-width for smaller screens */
     }
+    .promo-input {
+        margin-top: 10px;
+    }
     .order-summary-card{
         width: 100% !important;
     }
@@ -463,6 +465,12 @@ form label {
     .checkout-form-row {
         padding: 0 0.6rem !important;
     }
+    .overflow-auto {
+        padding-bottom: 10rem !important; /* Adjust as needed to ensure the last meal card is visible */
+    }
+    .meal-card-heading {
+        font-size: 15px !important;
+    }
 }
 
 @media (min-width:768px) {
@@ -472,6 +480,15 @@ form label {
     }
     .my-meals-summary-card-li {
         padding: 0 !important;
+    }
+    .overflow-auto {
+        padding-bottom: 0 !important; /* Adjust as needed to ensure the last meal card is visible */
+    }
+    .main-cart {
+        display: block !important; /* Override the display property */
+    }
+    .cart-column {
+        background: white !important;
     }
 }
 
