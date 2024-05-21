@@ -348,7 +348,7 @@ form label {
 .cart-column {
     display: flex !important;
     flex-direction: column !important;
-    max-height: calc(100vh - 20px) !important; /* Adjust as necessary to fit within the viewport */
+    max-height: calc(100vh - 58px) !important; /* Adjust as necessary to fit within the viewport */
     overflow: hidden !important; /* Prevents the cart from growing in height */
 }
   

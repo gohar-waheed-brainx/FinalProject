@@ -123,7 +123,7 @@ $(document).ready(function () {
     // Update the text in the first list item with the date from local storage
     var deliveryDate = localStorage.getItem("selectedDate");
     if (deliveryDate) {
-        $(".main-cart .delievery-date").html("My Delivery for: <b>" + deliveryDate + "</b>");
+        $(".main-cart .delivery-date").html("My Delivery for: <b>" + deliveryDate + "</b>");
     }
     
      // Move to the next step (day-step)
