@@ -363,20 +363,25 @@ $('.add-btn').click(function() {
   mealImage = mealImage.replace('@2x', '');
 
   // Create a new list item with the meal details
-  var listItem = '<li class="list-group-item border-0" style="' + (isSpecialCard ? 'background-color: black;' : '') + '">' +
-    '<div style="display: flex; flex-direction: row; justify-content: space-between; background-color: ' + (isSpecialCard ? 'black;' : '#F3F3F3;') + '">' +
-    '<div style="display: flex; flex-direction: row; gap: 3px;">' +
-    '<img src="' + mealImage + '" alt="Meal">' +
-    '<span class="pt-4" style="font-size: 13px; color: ' + (isSpecialCard ? 'white;' : 'black;') + '">' +
-    '<b>' + mealName + '</b>' +
-    '</span>' +
-    '</div>' +
-    '<div class="m-1 p-1" style="display: flex; flex-direction: column; justify-content: space-between;">' +
-    '<i role="button" class="fa fa-plus" style="color: ' + (isSpecialCard ? 'white;' : '#717171;') + '"></i>' +
-    '<i role="button" class="fa fa-minus" style="color: ' + (isSpecialCard ? 'white;' : '#717171;') + '"></i>' +
-    '</div>' +
-    '</div>' +
-    '</li>';
+  var listItem = '<li class="list-group-item border-0 mt-1 cart-meal-cards" style="' + (isSpecialCard ? 'background-color: black;' : 'background-color: #F3F3F3;') + '">' +
+  '<div style="display: flex; flex-direction: row; justify-content: space-between; background-color: ' + (isSpecialCard ? 'black;' : '#F3F3F3;') + '">' +
+  '<div style="display: flex; flex-direction: row; gap: 3px;">' +
+  '<div class="img-container">' +
+  '<img src="' + mealImage + '" alt="Meal">' +
+  (isSpecialCard ? '<div class="bottom-left border">+$11.49</div>' : '') + // Conditionally add the bottom text
+  '</div>' +
+  '<div class="my-meals-summary-card-li-content">' +
+  '<span style="font-size: 13px; color: ' + (isSpecialCard ? 'white;' : 'black;') + '">' +
+  '<b>' + mealName + '</b>' +
+  '</span>' +
+  '</div>' +
+  '</div>' +
+  '<div class="m-1 p-1" style="display: flex; flex-direction: column; justify-content: start; gap: 1.1rem">' +
+  '<i role="button" class="fa fa-plus" style="color: ' + (isSpecialCard ? 'white;' : '#717171;') + '"></i>' +
+  '<i role="button" class="fa fa-minus" style="color: ' + (isSpecialCard ? 'white;' : '#717171;') + '"></i>' +
+  '</div>' +
+  '</div>' +
+  '</li>';
 
   // If the order summary hasn't been added yet
   if (!orderSummaryAdded) {

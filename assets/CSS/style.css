@@ -248,6 +248,10 @@ form label {
     border-radius: 0px !important;
 }
 
+.cart-meal-cards {
+    padding: .3rem !important;
+}
+
 .meal-card-img {
     height: 135px;
 }
@@ -334,6 +338,29 @@ form label {
     margin-left: 4rem !important;
     margin-right: 5rem !important;
 }
+
+.sticky-cart {
+    position: sticky !important;
+    top: 0 !important; /* Adjust this value as needed */
+    z-index: 1020 !important; /* Ensure it appears above other content if necessary */
+  }
+  
+.cart-column {
+    display: flex !important;
+    flex-direction: column !important;
+    max-height: calc(100vh - 20px) !important; /* Adjust as necessary to fit within the viewport */
+    overflow: hidden !important; /* Prevents the cart from growing in height */
+}
+  
+.cart-items {
+    flex-grow: 1 !important;
+    overflow-y: auto !important; /* Allows the meal items to scroll if they exceed the available space */
+}
+  
+.bottom-cart {
+    flex-shrink: 0 !important; /* Ensures the bottom cart doesn't shrink */
+}
+  
   
 @media only screen and (max-width: 992px) {
     .next-button {
@@ -533,7 +560,7 @@ form label {
         padding: 0;
     } 
     .meals-packages-paragraph {
-        padding: 0px 18.5rem !important;
+        padding: 0px 17.5rem !important;
     }
     .accordion-body {
         padding: 1rem 5rem !important;
