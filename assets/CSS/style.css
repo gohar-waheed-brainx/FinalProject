@@ -45,7 +45,7 @@ body {
 
 .img-wrapper {
     overflow: hidden;
-    /* You may set a specific height if necessary to prevent content shift */
+    border-radius: 18px; /* Apply the desired border-radius */
 }
 
 .total-meals-card-img-top {
@@ -54,11 +54,13 @@ body {
     display: block;
     width: 100%;
     height: auto;
+    border-radius: 18px; /* Ensure the image itself also has the border-radius */
 }
 
 .total-meals-card-img-top:hover {
     transform: scale(1.1);
 }
+
 
 
 .shipping-text-btn {
@@ -117,7 +119,7 @@ body {
 
 /* Apply bold font weight to accordion buttons */
 .accordion-body {
-    padding: 1rem 5.2rem !important;
+    padding: 1rem 3.2rem !important;
 }
 .accordion-button, .accordion-collapse {
     font-weight: bold;
@@ -157,17 +159,16 @@ form label {
     background-color: #D75D33;
 } */
 
-.clicked-parent {
-    background-color: #D75D33;
+.delievery-date-btn {
+    transition: margin-left 0.3s ease-in-out; /* Adjust duration and timing function as needed */
+}
+
+.delievery-date-btn:not(.clicked):hover {
+    margin-left: 3px;
 }
 
 .delievery-date-btn.clicked {
-    margin-left: 5px;
-}
-
-.delievery-date-btn:hover {
-    /* Ensure only margin change on hover */
-    margin-left: 5px;
+    border-left: 7px solid #D75D33 !important;
 }
 
 .delievery-day-hr {
@@ -603,7 +604,7 @@ form label {
         margin-top: 10rem ;
     }
     .accordion-body {
-        padding: 1rem 5rem !important;
+        padding: 1rem 2rem !important;
     }
     .checkout-section-container {
         margin-left : 5rem !important

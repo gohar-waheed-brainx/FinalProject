@@ -28,20 +28,34 @@ $(document).ready(function () {
           
           // Add 'clicked' class to the clicked item
           this.classList.add('clicked');
-
-          // Remove 'clicked-parent' class from all parent divs
-          var allParentDivs = document.querySelectorAll('.clicked-parent');
-          allParentDivs.forEach(function(div) {
-              div.classList.remove('clicked-parent');
-          });
-
-          // Apply the 'clicked-parent' class to the parent div of the clicked item
-          var parentDiv = this.closest('.delievery-date-btn-container');
-          if (parentDiv) {
-              parentDiv.classList.add('clicked-parent');
-          }
       });
   });
+
+  function getNextMonday(date) {
+    var resultDate = new Date(date);
+    resultDate.setDate(date.getDate() + (1 + 7 - date.getDay()) % 7);
+    return resultDate;
+  }
+
+  function formatDate(date) {
+    var options = { weekday: 'long', month: 'short', day: 'numeric' };
+    var formattedDate = date.toLocaleDateString('en-US', options).split(', ');
+    return `<span class="fw-bold">${formattedDate[0]}</span>, ${formattedDate.slice(1).join(', ')}`;
+  }
+
+  function populateDeliveryDates() {
+    var currentDate = new Date();
+    var nextMonday = getNextMonday(currentDate);
+    var dateListItems = document.querySelectorAll('.delievery-date-btn.delievery-dates-li');
+    
+    dateListItems.forEach(function (item, index) {
+      var nextDate = new Date(nextMonday);
+      nextDate.setDate(nextMonday.getDate() + index);
+      item.innerHTML = formatDate(nextDate);
+    });
+  }
+
+  populateDeliveryDates();
 
   $('#promo-code-button').click(function() {
     $(this).hide();
