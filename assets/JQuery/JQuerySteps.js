@@ -57,6 +57,19 @@ $(document).ready(function () {
 
   populateDeliveryDates();
 
+  // Toggle the cart visibility on cart icon click (for mobile screens)
+  $('.cart-icon').on('click', function () {
+    $('.main-cart').toggleClass('collapsed-cart expanded-cart');
+  });
+
+  // Hide the cart when clicking outside of it (optional)
+  $('.cart-icon').on('click', function (event) {
+      if (!$(event.target).closest('.cart-column').length) {
+          $('.main-cart').removeClass('expanded-cart').addClass('collapsed-cart');
+      }
+  });
+
+
   $('#promo-code-button').click(function() {
     $(this).hide();
     $('#promo-code-input').show().focus();
@@ -112,7 +125,7 @@ $(document).ready(function () {
     console.log("Selected Date : ", deliveryDate);
     if (!deliveryDate) {
         // If no delivery date is found, set the default date (Monday, Jun 26)
-        deliveryDate = "Monday, Jun 26";
+        deliveryDate = "Monday, May 27";
         // Store the default date in local storage
         localStorage.setItem("selectedDate", deliveryDate);
     }
@@ -244,6 +257,7 @@ $(document).ready(function () {
 
     // Update the order summary to reflect the changes
     updateOrderSummary();
+    $('.main-cart').removeClass('expanded-cart').addClass('collapsed-cart');
   });
 
   // Function to add a meal to the cart
@@ -384,7 +398,7 @@ $('.add-btn').click(function() {
   mealImage = mealImage.replace('@2x', '');
 
   // Create a new list item with the meal details
-  var listItem = '<li class="list-group-item border-0 mt-1 cart-meal-cards" style="' + (isSpecialCard ? 'background-color: black;' : 'background-color: #F3F3F3;') + '">' +
+  var listItem = '<li class="list-group-item border-0 m-2 cart-meal-cards" style="' + (isSpecialCard ? 'background-color: black;' : 'background-color: #F3F3F3;') + '">' +
   '<div style="display: flex; flex-direction: row; justify-content: space-between; background-color: ' + (isSpecialCard ? 'black;' : '#F3F3F3;') + '">' +
   '<div style="display: flex; flex-direction: row; gap: 3px;">' +
   '<div class="img-container">' +

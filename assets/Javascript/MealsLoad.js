@@ -359,14 +359,17 @@ function createMealCard(meal) {
 
     if (meal.special) {
         cardDiv.classList.add('special-meal-card');
-        cardDiv.style.backgroundColor = 'black'; // Set black background for special cards
     }
+
+    const imageWrapper = document.createElement('div');
+    imageWrapper.classList.add('image-wrapper');
+    cardDiv.appendChild(imageWrapper);
 
     const cardImg = document.createElement('img');
     cardImg.src = meal.image;
     cardImg.classList.add('card-img-top', 'meal-card-img');
     cardImg.alt = "Meal";
-    cardDiv.appendChild(cardImg);
+    imageWrapper.appendChild(cardImg);
 
     if (meal.special) {
         const overlayDiv = document.createElement('div');
@@ -383,10 +386,11 @@ function createMealCard(meal) {
 
     if (meal.special) {
         cardBody.style.zIndex = 1;
+        cardBody.style.background = 'black';
     }
 
     const cardTitle = document.createElement('h5');
-    cardTitle.classList.add('card-title', 'fw-bold','meal-card-heading');
+    cardTitle.classList.add('card-title', 'fw-bold','meal-card-heading','mt-2');
     cardTitle.style.fontSize = "14px";
     cardTitle.textContent = meal.title;
     cardTitle.style.color = meal.special ? 'white' : 'black'; // Set text color based on meal type
@@ -417,6 +421,7 @@ function createMealCard(meal) {
 
     return cardDiv;
 }
+
 
 
   // Function to load meals into the container
