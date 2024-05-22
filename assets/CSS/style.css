@@ -11,7 +11,6 @@ body {
     display: flex; 
     flex-direction: column; 
     justify-content: center; 
-    padding: 0 22rem;
 }
 
 .top-nav-bar {
@@ -44,19 +43,32 @@ body {
     color: #D75D33;
 }
 
+.img-wrapper {
+    overflow: hidden;
+    /* You may set a specific height if necessary to prevent content shift */
+}
+
 .total-meals-card-img-top {
     cursor: pointer;
     transition: transform .2s;
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 .total-meals-card-img-top:hover {
-    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    transform: scale(1.1);
 }
+
 
 .shipping-text-btn {
     width: 150px; 
     height: 42px; 
     background: transparent linear-gradient(119deg, #AF2081 0%, #533174 100%) 0% 0% no-repeat padding-box;
+}
+
+.shipping-text-btn {
+    transition: width 0.3s ease-in-out; /* Adjust duration and timing function as needed */
 }
 
 .shipping-text-btn:hover {
@@ -376,7 +388,8 @@ form label {
         padding: 0 4rem;
     }
     .meals-packages-paragraph {
-        padding: 0 1.5rem;
+        width: 94% !important;
+        margin: 0 auto;
     }
     .meals-packages-packs {
         gap: 8px;
@@ -478,6 +491,10 @@ form label {
         margin:  0 !important;
         padding: 0 1.5rem !important;
     }
+    .meals-packages-paragraph {
+        width: 94% !important;
+        margin: 0 auto;
+    }
     .my-meals-summary-card-li {
         padding: 0 !important;
     }
@@ -504,7 +521,8 @@ form label {
         padding: 0;
     } 
     .meals-packages-paragraph {
-        padding: 0px 9.5rem !important;
+        width: 70% !important;
+        margin: 0 auto;
     }
     .meals-packages-packs {
         gap: 8px;
@@ -555,7 +573,8 @@ form label {
         padding: 0;
     } 
     .meals-packages-paragraph {
-        padding: 0px 14.6rem !important;    
+        width: 58% !important;
+        margin: 0 auto;
     }
     .accordion-body {
         padding: 1rem 1rem !important;
@@ -575,9 +594,13 @@ form label {
 @media only screen and (min-width: 1280px) {
     .meals-packages-top-heading-paragrapgh-container,.meals-packages-heading {
         padding: 0;
-    } 
+    }
     .meals-packages-paragraph {
-        padding: 0px 17.5rem !important;
+        width: 56% !important;
+        margin: 0 auto;
+    } 
+    .shipping-text {
+        margin-top: 10rem ;
     }
     .accordion-body {
         padding: 1rem 5rem !important;
@@ -591,6 +614,29 @@ form label {
     }
     .my-meals-summary-card-li {
         padding: 0.3rem 1rem !important;
+    }
+    .offer-text {
+        width: 40% !important;
+        font-size: 13px !important;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .meals-packages-paragraph {
+        width: 50% !important;
+        margin: 0 auto;
+    }
+}
+@media screen and (min-width: 1600px) {
+    .meals-packages-paragraph {
+        width: 43% !important;
+        margin: 0 auto;
+    }
+}
+@media screen and (min-width: 1900px) {
+    .meals-packages-paragraph {
+        width: 37% !important;
+        margin: 0 auto;
     }
 }
 
