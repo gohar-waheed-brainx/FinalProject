@@ -778,6 +778,9 @@ form label {
         width: 84%;
         margin: 0 auto !important;
     }
+    .checkout-form {
+        width: 35% !important;
+    }
 }
 
 
