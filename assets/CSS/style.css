@@ -419,19 +419,18 @@ form label {
     width: 50% !important;
 }
 
-.checkout-whole-section {
+.sectionContainer  {
     display: flex; 
-    flex-wrap: wrap; 
-    justify-content: 
-    center; gap: 25px;
+    justify-content: space-between;
+    /* gap: 1rem; */
 }
 
 .last-section-accordian {
     padding: 0 auto !important;
 }
 
-.checkout-spacing {
-    padding: 0 7rem !important;
+.checking {
+    width: 80% !important;
 }
   
 @media only screen and (max-width: 992px) {
@@ -564,6 +563,9 @@ form label {
         width: 100% !important;
         margin-top: 2rem;
     }
+    .checking {
+        width: 100% !important;
+    }
 }
 
 @media (min-width:768px) {
@@ -596,12 +598,21 @@ form label {
         font-size: 15px !important;
     }
     .checkout-form {
-        width: 48% !important;
+        width: 56% !important;
         margin-top: 0;
     }
     .checkout-whole-section {
         gap: 8px !important;
         margin: 0;
+    }
+    .checking {
+        width: 100% !important;
+    }
+    .flex-wrap {
+        flex-wrap:nowrap !important;
+    }
+    .sectionContainer {
+        gap: 1rem;
     }
 }
 
@@ -668,6 +679,15 @@ form label {
     .checkout-spacing {
         margin: 0 auto !important;
         width: 81%;
+    }
+    .checking {
+        width: 95% !important;
+    }
+    .flex-wrap {
+        flex-wrap:wrap !important;
+    }
+    .sectionContainer {
+        gap: 0rem !important;
     }
 }
 
@@ -755,6 +775,9 @@ form label {
         margin: 6rem auto !important;
         width: 85%;
     }
+    .checking {
+        width: 65% !important;
+    }
 }
 
 @media screen and (min-width: 1400px) {
@@ -778,8 +801,11 @@ form label {
         width: 84%;
         margin: 0 auto !important;
     }
-    .checkout-form {
+    /* .checkout-form {
         width: 35% !important;
+    } */
+    .checking {
+        width: 45% !important;
     }
 }
 
