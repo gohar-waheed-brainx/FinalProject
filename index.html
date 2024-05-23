@@ -47,7 +47,7 @@
                             <div class="img-wrapper">
                               <img src="./assets/images/4-meals.png" class="card-img-top total-meals-card-img-top" alt="4 Meals">
                             </div>
-                              <div class="card-img-overlay text-start p-0 m-2">
+                              <div class="card-img-overlay meal-plan-card-overlay text-start p-0 m-2">
                                   <p class="offer-text card-title border rounded-pill w-50 text-center bg-white text-black" style="font-size: 14px;">Save upto 10$</p>
                               </div>
                               <div class="card-body text-center">
@@ -250,6 +250,7 @@
                 <div class="cart-column card border-0 shadow-sm bg-body rounded h-100">
                     <ul class="list-group list-group-flush cart-items">
                         <div class="main-cart collapsed-cart">
+                          <span class="close-cart-icon" style="display: none;"></span>
                             <li class="list-group-item">
                                 <div class="cart-summary-li">
                                     <span class="delivery-date" style="font-size: 12px;">
@@ -284,209 +285,207 @@
               </div>
         </section>
         <section  id="checkout" data-step="checkout-step">
-            <div class="text-center mt-5 checkout-section-container">
-                <div class="container row" style="justify-content: center;">
-                    <div class="col-lg-7 col-md-6 text-start mt-0 p-4 pt-0 checkout-form">
-                        <h3 class="fw-bold checkout-heading">
-                            Checkout
-                        </h3>
-                        <div class="container border bg-white mt-4">
-                            <form class="row checkout-form-row g-3 pt-2 px-5">
-                                <h5 class="fw-bold my-4">
-                                    Delivery Address
-                                </h5>
-                                <div class="col-md-6">
-                                  <label for="fname" class="form-label fw-bold">First Name</label>
-                                  <input type="text" class="form-control" id="fname">
-                                </div>
-                                <div class="col-md-6">
-                                  <label for="lname" class="form-label fw-bold">Last Name</label>
-                                  <input type="text" class="form-control" id="lname">
-                                </div>
-                                <div class="col-12">
-                                    <label for="fname-delievery-1" class="form-label fw-bold">Full Name for Delivery Address</label>
-                                    <input type="text" class="form-control" id="fname-delievery-1">
-                                </div>
-                                <div class="col-12">
-                                    <label for="fname-delievery-2" class="form-label fw-bold">Full Name for Delivery Address</label>
-                                    <input type="text" class="form-control" id="fname-delievery-2">
-                                </div>
-                                <div class="col-12">
-                                  <label for="inputAddress" class="form-label fw-bold">Address Line 1</label>
-                                  <input type="text" class="form-control" id="inputAddress">
-                                </div>
-                                <div class="col-12">
-                                  <label for="inputAddress2" class="form-label fw-bold">Address Line 2 (optional)</label>
-                                  <input type="text" class="form-control" id="inputAddress2">
-                                </div>
-                                <div class="col-md-6">
-                                  <label for="inputCity" class="form-label fw-bold">City</label>
-                                  <input type="text" class="form-control" id="inputCity">
-                                </div>
-                                <div class="col-md-4">
-                                  <label for="inputState" class="form-label fw-bold ">State</label>
-                                  <input type="text" class="form-control" id="inputState">
-                                </div>
-                                <div class="col-md-2">
-                                  <label for="inputZip" class="form-label fw-bold">Zip  <span class="zip-code-change"> change</span></label>
-                                  <input type="text" class="form-control" id="inputZip">
-                                </div>
-                                <div class="col-12">
-                                    <label for="phone" class="form-label fw-bold">Phone</label>
-                                    <input type="tel" class="form-control" id="phone">
-                                  </div>
-                                <div class="col-12">
-                                  <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                                    <label class="form-check-label" for="gridCheck">
-                                        Receive SMS text message updates on my orders
-                                    </label>
-                                  </div>
-                                </div>
-                                <div class="col-12">
-                                    <label for="inputEmail" class="form-label fw-bold">Email (We require your email to send you receipts and order updates)</label>
-                                    <input type="email" class="form-control" id="inputEmail">
-                                </div>
-                                <div class="col-12">
-                                    <hr>
-                                </div>
-                                <div class="col-12">
-                                    <button class="checkout-btn mt-0 mb-5 text-center text-white fw-normal border-0 rounded">
-                                        Checkout
-                                    </button>
-                                </div>
-                            </form>
+          <div class="checkout-whole-section mt-5">
+              <div class="checkout-form">
+                <h3 class="fw-bold checkout-heading">
+                    Checkout
+                </h3>
+                <div class="container border bg-white mt-4">
+                    <form class="row checkout-form-row g-3 pt-2 px-5">
+                        <h5 class="fw-bold my-4">
+                            Delivery Address
+                        </h5>
+                        <div class="col-md-6">
+                          <label for="fname" class="form-label fw-bold">First Name</label>
+                          <input type="text" class="form-control" id="fname">
                         </div>
-                    </div>
-                    <div class="col-lg-5 col-md-6 text-start order-first order-md-last">
-                      <h3 class="fw-bold order-summary-heading">
-                        Order Summary
-                      </h3>
-                      <div class="order-summary-card card mt-4 border w-75">
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item">
-                            <button id="promo-code-button" class="promo-code btn btn-link m-0 p-0">+ Add Promo Code</button>
-                            <input id="promo-code-input" type="text" class="form-control" placeholder="Enter Promo Code" style="display: none;">
-                          </li>                
-                          <li class="list-group-item">
-                            <label for="delievery-date" class="form-label fw-bold" style="font-size: 14px;">Delievery Date</label>
-                            <input type="text" class="form-control bg-transparent" id="delievery-date" value="Monday Jun, 19" readonly>
-                          </li>
-                          <li class="list-group-item">
-                            <div class="order-summary-card-li">
-                              <span>
-                                Meals
-                              </span>
-                              <span id="totalPrice" class="fw-bold">
-                                $78.98
-                              </span>
-                            </div>
-                          </li>
-                          <li class="list-group-item">
-                            <div class="order-summary-card-li">
-                              <span>
-                                Shipping
-                              </span>
-                              <span class="fw-bold">
-                                $8.99
-                              </span>
-                            </div>
-                          </li>
-                          <li class="list-group-item">
-                            <div class="order-summary-card-li">
-                              <span>
-                                Tax
-                              </span>
-                              <span class="fw-bold">
-                                $10.99
-                              </span>
-                            </div>
-                          </li>
-                          <li class="list-group-item">
-                            <div class="order-summary-card-li">
-                              <span class="fw-bold">
-                                Total
-                              </span>
-                              <span id="totalOrderSummary" class="fw-bold" style="color: #D75D33;">
-                                $98.96
-                              </span>
-                            </div>
-                          </li>
-                        </ul>
-                      </div>
-                      <h3 class="fw-bold mt-4 my-meals-heading">
-                        My Meals
-                      </h3>
-                      <div class="order-summary-card card mt-4 border w-75">
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item p-0">
-                            <div class="my-meals-summary-card-li">
-                              <div class="my-meals-summary-card-li-quantity">
-                                <span class="fw-bold">
-                                  1
-                                </span>
-                              </div>
-                              <img src="./assets/images/1.png" alt="Meal Picture">
-                              <span class="my-meals-summary-card-li-content">
-                                <span class="fw-bold" style="font-size: 14px;">
-                                  Mix Veggies
-                                </span>
-                                <span class="my-meals-summary-ingredients">
-                                  with Cabbage, Carrots & Chicken
-                                </span>
-                              </span>
-                            </div>
-                          </li>
-                          <li class="list-group-item p-0">
-                            <div class="my-meals-summary-card-li">
-                              <div class="my-meals-summary-card-li-quantity">
-                                <span class="fw-bold">
-                                  1
-                                </span>
-                              </div>
-                              <img src="./assets/images/2.png" alt="Meal Picture">
-                              <span class="my-meals-summary-card-li-content">
-                                <span class="fw-bold" style="font-size: 14px;">
-                                  Protein-Packed Chicken Salad
-                                </span>
-                                <span class="my-meals-summary-ingredients">
-                                  with Fruits & Seeds
-                                </span>
-                              </span>
-                            </div>
-                          </li>
-                          <li class="list-group-item p-0" style="background-color: black !important;">
-                            <div class="my-meals-summary-card-li">
-                              <div class="my-meals-summary-card-li-quantity">
-                                <span class="fw-bold text-white">
-                                  2
-                                </span>
-                              </div>
-                              <div class="img-container">
-                                <img src="./assets/images/3.png" alt="Meal Picture">
-                                <div class="bottom-left border">+ $11.49</div>
-                              </div>
-                              <span class="my-meals-summary-card-li-content">
-                                <span class="fw-bold text-white" style="font-size: 14px;">
-                                  Super-Grain Snacks Bowl
-                                </span>
-                                <span class="my-meals-summary-ingredients text-white">
-                                  with Avocado & Veggies
-                                </span>
-                              </span>
-                            </div>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
+                        <div class="col-md-6">
+                          <label for="lname" class="form-label fw-bold">Last Name</label>
+                          <input type="text" class="form-control" id="lname">
+                        </div>
+                        <div class="col-12">
+                            <label for="fname-delievery-1" class="form-label fw-bold">Full Name for Delivery Address</label>
+                            <input type="text" class="form-control" id="fname-delievery-1">
+                        </div>
+                        <div class="col-12">
+                            <label for="fname-delievery-2" class="form-label fw-bold">Full Name for Delivery Address</label>
+                            <input type="text" class="form-control" id="fname-delievery-2">
+                        </div>
+                        <div class="col-12">
+                          <label for="inputAddress" class="form-label fw-bold">Address Line 1</label>
+                          <input type="text" class="form-control" id="inputAddress">
+                        </div>
+                        <div class="col-12">
+                          <label for="inputAddress2" class="form-label fw-bold">Address Line 2 (optional)</label>
+                          <input type="text" class="form-control" id="inputAddress2">
+                        </div>
+                        <div class="col-md-6">
+                          <label for="inputCity" class="form-label fw-bold">City</label>
+                          <input type="text" class="form-control" id="inputCity">
+                        </div>
+                        <div class="col-md-4">
+                          <label for="inputState" class="form-label fw-bold ">State</label>
+                          <input type="text" class="form-control" id="inputState">
+                        </div>
+                        <div class="col-md-2">
+                          <label for="inputZip" class="form-label fw-bold">Zip  <span class="zip-code-change"> change</span></label>
+                          <input type="text" class="form-control" id="inputZip">
+                        </div>
+                        <div class="col-12">
+                            <label for="phone" class="form-label fw-bold">Phone</label>
+                            <input type="tel" class="form-control" id="phone">
+                          </div>
+                        <div class="col-12">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck">
+                            <label class="form-check-label" for="gridCheck">
+                                Receive SMS text message updates on my orders
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-12">
+                            <label for="inputEmail" class="form-label fw-bold">Email (We require your email to send you receipts and order updates)</label>
+                            <input type="email" class="form-control" id="inputEmail">
+                        </div>
+                        <div class="col-12">
+                            <hr>
+                        </div>
+                        <div class="col-12">
+                            <button class="checkout-btn mt-0 mb-5 text-center text-white fw-normal border-0 rounded">
+                                Checkout
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <hr class="mt-5">
+                <div class="order-first order-md-last">
+                  <h3 class="fw-bold order-summary-heading">
+                    Order Summary
+                  </h3>
+                  <div class="order-summary-card card mt-4 border w-75">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">
+                        <button id="promo-code-button" class="promo-code btn btn-link m-0 p-0">+ Add Promo Code</button>
+                        <input id="promo-code-input" type="text" class="form-control" placeholder="Enter Promo Code" style="display: none;">
+                      </li>                
+                      <li class="list-group-item">
+                        <label for="delievery-date" class="form-label fw-bold" style="font-size: 14px;">Delievery Date</label>
+                        <input type="text" class="form-control bg-transparent" id="delievery-date" value="Monday Jun, 19" readonly>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="order-summary-card-li">
+                          <span>
+                            Meals
+                          </span>
+                          <span id="totalPrice" class="fw-bold">
+                            $78.98
+                          </span>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="order-summary-card-li">
+                          <span>
+                            Shipping
+                          </span>
+                          <span class="fw-bold">
+                            $8.99
+                          </span>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="order-summary-card-li">
+                          <span>
+                            Tax
+                          </span>
+                          <span class="fw-bold">
+                            $10.99
+                          </span>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="order-summary-card-li">
+                          <span class="fw-bold">
+                            Total
+                          </span>
+                          <span id="totalOrderSummary" class="fw-bold" style="color: #D75D33;">
+                            $98.96
+                          </span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <h3 class="fw-bold mt-4 my-meals-heading">
+                    My Meals
+                  </h3>
+                  <div class="order-summary-card card mt-4 border w-75">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item p-0">
+                        <div class="my-meals-summary-card-li">
+                          <div class="my-meals-summary-card-li-quantity">
+                            <span class="fw-bold">
+                              1
+                            </span>
+                          </div>
+                          <img src="./assets/images/1.png" alt="Meal Picture">
+                          <span class="my-meals-summary-card-li-content">
+                            <span class="fw-bold" style="font-size: 14px;">
+                              Mix Veggies
+                            </span>
+                            <span class="my-meals-summary-ingredients">
+                              with Cabbage, Carrots & Chicken
+                            </span>
+                          </span>
+                        </div>
+                      </li>
+                      <li class="list-group-item p-0">
+                        <div class="my-meals-summary-card-li">
+                          <div class="my-meals-summary-card-li-quantity">
+                            <span class="fw-bold">
+                              1
+                            </span>
+                          </div>
+                          <img src="./assets/images/2.png" alt="Meal Picture">
+                          <span class="my-meals-summary-card-li-content">
+                            <span class="fw-bold" style="font-size: 14px;">
+                              Protein-Packed Chicken Salad
+                            </span>
+                            <span class="my-meals-summary-ingredients">
+                              with Fruits & Seeds
+                            </span>
+                          </span>
+                        </div>
+                      </li>
+                      <li class="list-group-item p-0" style="background-color: black !important;">
+                        <div class="my-meals-summary-card-li">
+                          <div class="my-meals-summary-card-li-quantity">
+                            <span class="fw-bold text-white">
+                              2
+                            </span>
+                          </div>
+                          <div class="img-container">
+                            <img src="./assets/images/3.png" alt="Meal Picture">
+                            <div class="bottom-left border">+ $11.49</div>
+                          </div>
+                          <span class="my-meals-summary-card-li-content">
+                            <span class="fw-bold text-white" style="font-size: 14px;">
+                              Super-Grain Snacks Bowl
+                            </span>
+                            <span class="my-meals-summary-ingredients text-white">
+                              with Avocado & Veggies
+                            </span>
+                          </span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+            </div>
+            <hr class="mt-5 checkout-spacing-hr">
                 <h1 class="text-center mt-5">
                     Common Questions
                 </h1>
                 <div>
-                  <div class="accordion accordion-flush m-5 mt-0 p-5 pt-0" id="accordionFlushExample">
+                  <div class="checkout-spacing accordion accordion-flush m-5 mt-0 pt-0" id="accordionFlushExample">
                     <div class="accordion-item">
                       <h2 class="accordion-header" id="flush-headingOne">
                         <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -559,6 +558,7 @@
                     </div>
                   </div>
               </div>
+          </div>
         </section>
     </div>
     <footer>

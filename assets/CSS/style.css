@@ -29,6 +29,10 @@ body {
     gap: 12px;
 }
 
+.meal-plan-card-overlay {
+    pointer-events: none !important;
+}
+
 
 .meals-quantity-card{
     width: 278px; 
@@ -101,10 +105,21 @@ body {
     justify-content: space-between;
 }
 
+.delievery-date-btn.delievery-dates-li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .delievery-date-most-popular-text {
-    color: #D75D33; 
+    color: #D75D33;
     font-size: 10px;
 }
+
+.date-text {
+    display: inline-block;
+}
+
 .meal-delievery-card {
     width: 300px; 
     height: 255px; 
@@ -193,7 +208,7 @@ form label {
 }
 
 .order-summary-card {
-    width: 100%;
+    width: 100% !important;
     border-radius: 0 !important;
 }
 
@@ -272,7 +287,7 @@ form label {
 }
 
 .meal-card-img {
-    height: 135px;
+    height: 165px;
     object-fit: cover !important;
     border-top-left-radius: 0px !important; 
     border-top-right-radius: 0px !important;
@@ -309,7 +324,7 @@ form label {
     margin-left: 7rem !important;
 } */
 
-.special-meal-card-overlay {
+/* .special-meal-card-overlay {
     margin-top: 7.3rem !important; 
     padding: 0;
 }
@@ -317,7 +332,7 @@ form label {
 .special-meal-card-overlay-price {
     font-size: 12px; 
     background: #D75D33;
-}
+} */
 
 .special-meal-card-title {
     font-size: 14px; 
@@ -385,6 +400,39 @@ form label {
     flex-shrink: 0 !important; /* Ensures the bottom cart doesn't shrink */
 }
   
+.main-cart.collapsed-cart .close-cart-icon {
+    display: none;
+}
+
+.main-cart.expanded-cart .close-cart-icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30' fill='%23D75D33'%3E%3Cpath d='M12 15a1 1 0 0 1-.707-.293l-4-4a1 1 0 1 1 1.414-1.414L12 12.586l3.293-3.293a1 1 0 0 1 1.414 1.414l-4 4A1 1 0 0 1 12 15z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 10px auto; /* Center horizontally */
+    cursor: pointer;
+}
+
+.checkout-form {
+    width: 50% !important;
+}
+
+.checkout-whole-section {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: 
+    center; gap: 25px;
+}
+
+.last-section-accordian {
+    padding: 0 auto !important;
+}
+
+.checkout-spacing {
+    padding: 0 7rem !important;
+}
   
 @media only screen and (max-width: 992px) {
     .next-button {
@@ -450,11 +498,6 @@ form label {
     .accordion-body {
         padding: 1rem 1.2rem !important;
     }
-    .checkout-form {
-        margin: 2rem 0 !important;
-        padding: 0 !important;
-        width: 100% !important;
-    }
     .checkout-heading, .order-summary-heading, .my-meals-heading {
         font-size: 30px;
     }
@@ -463,9 +506,6 @@ form label {
     }
     .promo-input {
         margin-top: 10px;
-    }
-    .order-summary-card{
-        width: 100% !important;
     }
     .main-cart.collapsed-cart {
         display: none;
@@ -478,7 +518,10 @@ form label {
         width: 90% !important;
     }
     .add-btn {
-        width: 20% !important;
+        width: 24% !important;
+        margin-bottom: 4px !important;
+        margin-left: 22px !important;
+        font-size: 15px;
     }
     .cart-column{
         background: transparent !important;
@@ -497,19 +540,33 @@ form label {
         padding-bottom: 10rem !important; /* Adjust as needed to ensure the last meal card is visible */
     }
     .meal-card-heading {
-        font-size: 15px !important;
+        font-size: 18px !important;
+        margin-bottom: 3px;
     }
     .meal-cards-minerals, .special-meal-card-minerals {
         font-size: 11px !important;
+        margin-bottom: 5px;
+    }
+    .meal-card-img { 
+        height: 154px;
+    }
+    .divider {
+        margin: 3px 15px !important;
+    }
+    .my-meals-summary-ingredients {
+        margin-bottom: 8px;
+    }
+    .checkout-whole-section {
+        gap: 0px !important;
+        margin: 0 1rem;
+    }
+    .checkout-form {
+        width: 100% !important;
+        margin-top: 2rem;
     }
 }
 
 @media (min-width:768px) {
-    .checkout-form {
-        margin:  0 !important;
-        padding: 0 1.5rem !important;
-        width: 50% !important;
-    }
     .meals-packages-paragraph {
         width: 94% !important;
         margin: 0 auto;
@@ -525,6 +582,26 @@ form label {
     }
     .meals-cards{
         width: 48% !important;
+    }
+    .divider {
+        margin: 3px 5px !important;
+    }
+    .add-btn {
+        margin-left: 5px !important;
+    }
+    .meal-cards-minerals {
+        margin-bottom: 0 !important;
+    }
+    .meal-card-heading {
+        font-size: 15px !important;
+    }
+    .checkout-form {
+        width: 48% !important;
+        margin-top: 0;
+    }
+    .checkout-whole-section {
+        gap: 8px !important;
+        margin: 0;
     }
 }
 
@@ -585,8 +662,12 @@ form label {
     .meals-cards-body {
         padding: 0rem 0.1rem !important;
     }
-    .order-summary-card {
-        width: 100% !important;
+    .checkout-whole-section {
+        gap: 25px !important;
+    }
+    .checkout-spacing {
+        margin: 0 auto !important;
+        width: 81%;
     }
 }
 
@@ -609,6 +690,10 @@ form label {
     }
     .meals-cards, .special-meal-card {
         width: 223px !important;
+    }
+    .checkout-spacing {
+        margin: 0 auto !important;
+        width: 81%;
     }
 }
 
@@ -642,6 +727,34 @@ form label {
     .checkout-section-container {
         margin-left: 7rem !important;
     }
+    .divider {
+        margin: 2px 7px !important
+    }
+    .meal-cards-minerals {
+        margin-bottom: 0 !important;
+    }
+    .meal-card-heading {
+        font-size: 14px !important;
+    }
+    .add-btn {
+        font-size: 12px; 
+        margin-bottom: 6px !important; 
+        margin-left: 3px !important;
+    }
+    .checkout-form {
+        width: 50% !important;
+    }
+    .checkout-whole-section {
+        gap: 25px !important;
+    }
+    .checkout-spacing {
+        margin: 0 auto !important;
+        width: 85%;
+    }
+    .checkout-spacing-hr {
+        margin: 6rem auto !important;
+        width: 85%;
+    }
 }
 
 @media screen and (min-width: 1400px) {
@@ -660,6 +773,10 @@ form label {
     .meals-packages-paragraph {
         width: 37% !important;
         margin: 0 auto;
+    }
+    .checkout-spacing {
+        width: 84%;
+        margin: 0 auto !important;
     }
 }
 

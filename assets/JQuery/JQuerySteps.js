@@ -35,39 +35,51 @@ $(document).ready(function () {
     var resultDate = new Date(date);
     resultDate.setDate(date.getDate() + (1 + 7 - date.getDay()) % 7);
     return resultDate;
-  }
+}
 
-  function formatDate(date) {
+function formatDate(date, additionalText = '') {
     var options = { weekday: 'long', month: 'short', day: 'numeric' };
     var formattedDate = date.toLocaleDateString('en-US', options).split(', ');
-    return `<span class="fw-bold">${formattedDate[0]}</span>, ${formattedDate.slice(1).join(', ')}`;
-  }
+    return `<span class="date-text"><span class="fw-bold">${formattedDate[0]}</span>, ${formattedDate.slice(1).join(', ')}</span> ${additionalText}`;
+}
 
-  function populateDeliveryDates() {
+function populateDeliveryDates() {
     var currentDate = new Date();
     var nextMonday = getNextMonday(currentDate);
     var dateListItems = document.querySelectorAll('.delievery-date-btn.delievery-dates-li');
     
     dateListItems.forEach(function (item, index) {
-      var nextDate = new Date(nextMonday);
-      nextDate.setDate(nextMonday.getDate() + index);
-      item.innerHTML = formatDate(nextDate);
+        var nextDate = new Date(nextMonday);
+        nextDate.setDate(nextMonday.getDate() + index);
+        if (index === 0) {
+            item.innerHTML = formatDate(nextDate, '<span class="delievery-date-most-popular-text"><i class="fa fa-star-o"></i> Most Popular</span>');
+        } else {
+            item.innerHTML = formatDate(nextDate);
+        }
     });
-  }
+}
 
-  populateDeliveryDates();
+populateDeliveryDates();
 
-  // Toggle the cart visibility on cart icon click (for mobile screens)
-  $('.cart-icon').on('click', function () {
-    $('.main-cart').toggleClass('collapsed-cart expanded-cart');
-  });
 
-  // Hide the cart when clicking outside of it (optional)
-  $('.cart-icon').on('click', function (event) {
-      if (!$(event.target).closest('.cart-column').length) {
-          $('.main-cart').removeClass('expanded-cart').addClass('collapsed-cart');
+// Toggle the cart visibility on cart icon click (for mobile screens)
+$('.cart-icon').on('click', function () {
+  if ($(window).width() < 768) { // Check if screen width is less than 768px (mobile screen)
+      $('.main-cart').toggleClass('collapsed-cart expanded-cart');
+      if ($('.main-cart').hasClass('expanded-cart')) {
+          $('.close-cart-icon').show();
+      } else {
+          $('.close-cart-icon').hide();
       }
-  });
+  }
+});
+
+// Handle the down icon click to close the cart
+$('.close-cart-icon').on('click', function () {
+  $('.main-cart').removeClass('expanded-cart').addClass('collapsed-cart');
+  $('.close-cart-icon').hide();
+});
+
 
 
   $('#promo-code-button').click(function() {
@@ -257,7 +269,6 @@ $(document).ready(function () {
 
     // Update the order summary to reflect the changes
     updateOrderSummary();
-    $('.main-cart').removeClass('expanded-cart').addClass('collapsed-cart');
   });
 
   // Function to add a meal to the cart
@@ -314,21 +325,21 @@ $(document).ready(function () {
     addMealToCart(mealTitle, isSpecial);
   });
 
-  // Function to handle the click event on the clear all button
-  $(document).on('click', '.clear-all-btn', function() {
-    // Remove all list items except the first one (which contains the clear button)
-    $('.main-cart .list-group-item').not(':first').remove();
+  // // Function to handle the click event on the clear all button
+  // $(document).on('click', '.clear-all-btn', function() {
+  //   // Remove all list items except the first one (which contains the clear button)
+  //   $('.main-cart .list-group-item').not(':first').remove();
 
-    // Set the flag to indicate that the order summary has not been added
-    orderSummaryAdded = false;
+  //   // Set the flag to indicate that the order summary has not been added
+  //   orderSummaryAdded = false;
 
-    // Reset local storage values
-    localStorage.setItem("totalPrice", 0);
-    localStorage.setItem("mealCartCount", 0);
+  //   // Reset local storage values
+  //   localStorage.setItem("totalPrice", 0);
+  //   localStorage.setItem("mealCartCount", 0);
 
-    // Update the order summary
-    updateOrderSummary();
-  });
+  //   // Update the order summary
+  //   updateOrderSummary();
+  // });
 
   // Function to handle the click event on the minus icon
   $(document).on('click', '.fa-minus', function() {
