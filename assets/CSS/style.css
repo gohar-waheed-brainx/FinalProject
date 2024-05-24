@@ -208,7 +208,7 @@ form label {
 }
 
 .order-summary-card {
-    width: 100% !important;
+    width: 418px !important;
     border-radius: 0 !important;
 }
 
@@ -416,13 +416,13 @@ form label {
 }
 
 .checkout-form {
-    width: 50% !important;
+    width: 591px !important;
 }
 
 .sectionContainer  {
     display: flex; 
-    justify-content: space-between;
-    /* gap: 1rem; */
+    justify-content: center;
+    gap: 2rem;
 }
 
 .last-section-accordian {
@@ -430,7 +430,7 @@ form label {
 }
 
 .checking {
-    width: 80% !important;
+    width: 1090px !important;
 }
   
 @media only screen and (max-width: 992px) {
@@ -555,15 +555,10 @@ form label {
     .my-meals-summary-ingredients {
         margin-bottom: 8px;
     }
-    .checkout-whole-section {
-        gap: 0px !important;
-        margin: 0 1rem;
-    }
-    .checkout-form {
-        width: 100% !important;
-        margin-top: 2rem;
-    }
     .checking {
+        width: 100% !important;
+    }
+    .checkout-form, .order-summary-card {
         width: 100% !important;
     }
 }
@@ -597,22 +592,22 @@ form label {
     .meal-card-heading {
         font-size: 15px !important;
     }
-    .checkout-form {
-        width: 56% !important;
-        margin-top: 0;
-    }
-    .checkout-whole-section {
-        gap: 8px !important;
-        margin: 0;
-    }
-    .checking {
-        width: 100% !important;
-    }
     .flex-wrap {
         flex-wrap:nowrap !important;
     }
+    .checkout-form {
+        width: 363px !important;
+    }
+    .order-summary-card {
+        width: 303px !important;
+    }
     .sectionContainer {
-        gap: 1rem;
+        gap: 1rem !important;
+    }
+    .checking {
+        width: 736px !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
     }
 }
 
@@ -657,9 +652,6 @@ form label {
     .accordion-body {
         padding: 1rem 1.2rem !important;
     }
-    /* .checkout-section-container {
-        margin-left : 1rem !important
-    } */
     .section-4-divider {
         margin-left: 1rem !important;
         margin-right: 2rem !important;
@@ -673,21 +665,17 @@ form label {
     .meals-cards-body {
         padding: 0rem 0.1rem !important;
     }
-    .checkout-whole-section {
-        gap: 25px !important;
+    .checkout-form {
+        width: 507px !important;
     }
-    .checkout-spacing {
-        margin: 0 auto !important;
-        width: 81%;
-    }
-    .checking {
-        width: 95% !important;
-    }
-    .flex-wrap {
-        flex-wrap:wrap !important;
+    .order-summary-card {
+        width: 413px !important;
     }
     .sectionContainer {
-        gap: 0rem !important;
+        gap: 2rem !important;
+    }
+    .checking {
+        width: 960px !important;
     }
 }
 
@@ -702,18 +690,23 @@ form label {
     .accordion-body {
         padding: 1rem 1rem !important;
     }
-    /* .checkout-section-container {
-        margin-left : 3rem !important
-    } */
     .my-meals-summary-card-li {
         padding: 0.3rem 1rem !important;
     }
     .meals-cards, .special-meal-card {
         width: 223px !important;
     }
-    .checkout-spacing {
-        margin: 0 auto !important;
-        width: 81%;
+    .checkout-form {
+        width: 591px !important;
+    }
+    .order-summary-card {
+        width: 418px !important;
+    }
+    .checking {
+        width: 1071px !important;
+    }
+    .sectionContainer {
+        gap: 2rem !important;
     }
 }
 
@@ -761,12 +754,6 @@ form label {
         margin-bottom: 6px !important; 
         margin-left: 3px !important;
     }
-    .checkout-form {
-        width: 50% !important;
-    }
-    .checkout-whole-section {
-        gap: 25px !important;
-    }
     .checkout-spacing {
         margin: 0 auto !important;
         width: 85%;
@@ -774,9 +761,6 @@ form label {
     .checkout-spacing-hr {
         margin: 6rem auto !important;
         width: 85%;
-    }
-    .checking {
-        width: 65% !important;
     }
 }
 
@@ -796,16 +780,6 @@ form label {
     .meals-packages-paragraph {
         width: 37% !important;
         margin: 0 auto;
-    }
-    .checkout-spacing {
-        width: 84%;
-        margin: 0 auto !important;
-    }
-    /* .checkout-form {
-        width: 35% !important;
-    } */
-    .checking {
-        width: 45% !important;
     }
 }
 
