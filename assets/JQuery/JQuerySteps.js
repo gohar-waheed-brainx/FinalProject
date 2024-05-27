@@ -325,22 +325,6 @@ $('.close-cart-icon').on('click', function () {
     addMealToCart(mealTitle, isSpecial);
   });
 
-  // // Function to handle the click event on the clear all button
-  // $(document).on('click', '.clear-all-btn', function() {
-  //   // Remove all list items except the first one (which contains the clear button)
-  //   $('.main-cart .list-group-item').not(':first').remove();
-
-  //   // Set the flag to indicate that the order summary has not been added
-  //   orderSummaryAdded = false;
-
-  //   // Reset local storage values
-  //   localStorage.setItem("totalPrice", 0);
-  //   localStorage.setItem("mealCartCount", 0);
-
-  //   // Update the order summary
-  //   updateOrderSummary();
-  // });
-
   // Function to handle the click event on the minus icon
   $(document).on('click', '.fa-minus', function() {
     // Find the parent list item
