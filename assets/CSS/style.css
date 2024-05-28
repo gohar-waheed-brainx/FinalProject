@@ -5,6 +5,8 @@
     --border-color : #707070;
     --divider-color : #b6b3b3;
     --blue : #3167FF;
+    --cart-card-bg: #F3F3F3;
+    --cart-icon-color: #717171;
 }
 
 body {
@@ -108,7 +110,7 @@ body {
 }
 
 
-.delievery-date-most-popular, .order-summary-card-li, .cart-summary-li, .bottom-cart-content {
+.delievery-date-most-popular, .order-summary-card-li, .cart-summary-li, .bottom-cart-content, .cart-meals {
     display: flex; 
     flex-direction: row; 
     justify-content: space-between;
@@ -423,6 +425,86 @@ form label {
 .checking {
     width: 1090px !important;
 }
+
+.font-size-14px {
+    font-size: 14px;
+}
+
+.font-size-10px {
+    font-size: 10px;
+}
+.font-size-16px {
+    font-size: 16px;
+}
+
+.font-size-12px {
+    font-size: 12px;
+}
+
+.font-size-13px {
+    font-size: 13px;
+}
+
+.meal-delievery-card-overflow {
+    overflow-y: auto;
+}
+
+.section-3-height {
+    max-height: calc(100vh - 58px) !important;
+}
+
+.text-color-orange {
+    color: var(--orange);
+}
+
+.cart-icon {
+    padding: 0 12px;
+}
+
+.cart-icon-img {
+    height: 15px; 
+    width: 11px;
+}
+
+.cart-icon-count {
+    color: #D75D33; 
+    font-size: 13px;
+}
+
+.promo-code-input-field {
+    display: none;
+}
+
+.bg-black {
+    background-color: black !important;
+}
+
+.cart-card-bg {
+    background-color: var(--cart-card-bg);
+}
+
+.cart-meals-content {
+    display: flex; 
+    flex-direction: row; 
+    gap: 3px;
+}
+
+.cart-meal-icons {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: start; gap: 1.1rem
+}
+
+.cart-icon-color {
+    color: var(--cart-icon-color) !important;
+}
+
+.summary-card {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between;
+}
+
   
 @media only screen and (max-width: 992px) {
     .next-button {

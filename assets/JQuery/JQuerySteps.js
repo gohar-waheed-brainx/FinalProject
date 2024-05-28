@@ -15,74 +15,87 @@ $(document).ready(function () {
   var currentStep = 0;
   var visitedSteps = [];
 
-  // Get all list items
-  var listItems = document.querySelectorAll('.delievery-date-btn');
-
-  // Add click event listener to each list item
-  listItems.forEach(function(item) {
-      item.addEventListener('click', function() {
-          // Remove any existing 'clicked' class from other items
-          listItems.forEach(function(item) {
-              item.classList.remove('clicked');
-          });
-          
-          // Add 'clicked' class to the clicked item
-          this.classList.add('clicked');
-      });
-  });
-
   function getNextMonday(date) {
     var resultDate = new Date(date);
     resultDate.setDate(date.getDate() + (1 + 7 - date.getDay()) % 7);
     return resultDate;
-}
+  }
 
-function formatDate(date, additionalText = '') {
+  function formatDate(date, additionalText = '') {
     var options = { weekday: 'long', month: 'short', day: 'numeric' };
     var formattedDate = date.toLocaleDateString('en-US', options).split(', ');
     return `<span class="date-text"><span class="fw-bold">${formattedDate[0]}</span>, ${formattedDate.slice(1).join(', ')}</span> ${additionalText}`;
-}
+  }
 
-function populateDeliveryDates() {
+  function populateDeliveryDates() {
     var currentDate = new Date();
     var nextMonday = getNextMonday(currentDate);
-    var dateListItems = document.querySelectorAll('.delievery-date-btn.delievery-dates-li');
-    
-    dateListItems.forEach(function (item, index) {
-        var nextDate = new Date(nextMonday);
-        nextDate.setDate(nextMonday.getDate() + index);
-        if (index === 0) {
-            item.innerHTML = formatDate(nextDate, '<span class="delievery-date-most-popular-text"><i class="fa fa-star-o"></i> Most Popular</span>');
-        } else {
-            item.innerHTML = formatDate(nextDate);
-        }
+    var deliveryDatesList = document.getElementById('delivery-dates-list');
+
+    for (let i = 0; i < 10; i++) {
+      var listItem = document.createElement('li');
+      listItem.className = 'delievery-date-btn delievery-dates-li list-group-item';
+
+      var nextDate = new Date(nextMonday);
+      nextDate.setDate(nextMonday.getDate() + i);
+
+      if (i === 0) {
+        listItem.innerHTML = formatDate(nextDate, '<span class="delievery-date-most-popular-text"><i class="fa fa-star-o"></i> Most Popular</span>');
+        listItem.classList.add('clicked');
+      } else {
+        listItem.innerHTML = formatDate(nextDate);
+      }
+
+      deliveryDatesList.appendChild(listItem);
+    }
+
+    // Update the first delivery date text
+    var firstDeliveryDateText = deliveryDatesList.querySelector('.delievery-date-btn .date-text').innerText;
+    // Update the input field with the first delivery date
+    document.getElementById('delievery-date').value = firstDeliveryDateText;
+    // Update the cart summary delivery date
+    document.querySelector('.delivery-date b').innerText = firstDeliveryDateText;
+    document.querySelector('.first-delivery-date').innerText = firstDeliveryDateText;
+
+    // Add click event listener to each list item after they are added to the DOM
+    var listItems = document.querySelectorAll('.delievery-date-btn');
+    listItems.forEach(function (item) {
+      item.addEventListener('click', function () {
+        // Remove any existing 'clicked' class from other items
+        listItems.forEach(function (li) {
+          li.classList.remove('clicked');
+        });
+
+        // Add 'clicked' class to the clicked item
+        this.classList.add('clicked');
+      });
     });
-}
+  }
 
-populateDeliveryDates();
+  populateDeliveryDates();
 
 
-// Toggle the cart visibility on cart icon click (for mobile screens)
-$('.cart-icon').on('click', function () {
-  if ($(window).width() < 768) { // Check if screen width is less than 768px (mobile screen)
+  // Toggle the cart visibility on cart icon click (for mobile screens)
+  $('.cart-icon').on('click', function () {
+    if ($(window).width() < 768) { // Check if screen width is less than 768px (mobile screen)
       $('.main-cart').toggleClass('collapsed-cart expanded-cart');
       if ($('.main-cart').hasClass('expanded-cart')) {
-          $('.close-cart-icon').show();
+        $('.close-cart-icon').show();
       } else {
-          $('.close-cart-icon').hide();
+        $('.close-cart-icon').hide();
       }
-  }
-});
+    }
+  });
 
-// Handle the down icon click to close the cart
-$('.close-cart-icon').on('click', function () {
-  $('.main-cart').removeClass('expanded-cart').addClass('collapsed-cart');
-  $('.close-cart-icon').hide();
-});
+  // Handle the down icon click to close the cart
+  $('.close-cart-icon').on('click', function () {
+    $('.main-cart').removeClass('expanded-cart').addClass('collapsed-cart');
+    $('.close-cart-icon').hide();
+  });
 
 
 
-  $('#promo-code-button').click(function() {
+  $('#promo-code-button').click(function () {
     $(this).hide();
     $('#promo-code-input').show().focus();
   });
@@ -131,58 +144,48 @@ $('.close-cart-icon').on('click', function () {
   });
 
   // Function to check if next button is clicked 
-  $(".next-button").on("click", function() {
-    // Check if the local storage contains the delivery date
-    var deliveryDate = localStorage.getItem("selectedDate");
-    console.log("Selected Date : ", deliveryDate);
-    if (!deliveryDate) {
-        // If no delivery date is found, set the default date (Monday, Jun 26)
-        deliveryDate = "Monday, May 27";
-        // Store the default date in local storage
-        localStorage.setItem("selectedDate", deliveryDate);
-    }
-    console.log("Selected Date : ", deliveryDate);
+  $(".next-button").on("click", function () {
 
-  // Update the text in the last span element
-  var mealPlan = parseInt(localStorage.getItem("selectedPlan"), 10);
-  var mealCount = parseInt(localStorage.getItem("mealCartCount"), 10);
+    // Update the text in the last span element
+    var mealPlan = parseInt(localStorage.getItem("selectedPlan"), 10);
+    var mealCount = parseInt(localStorage.getItem("mealCartCount"), 10);
     if (mealPlan > mealCount) {
       // Disable the next button
       $(".next-cart-btn").prop("disabled", true);
       $(".border.p-3.bg-white span.text-center").html("Please add <b>" + Math.abs(mealPlan - mealCount) + " more</b> meals.");
-  } else if (mealPlan === mealCount) {
+    } else if (mealPlan === mealCount) {
       // Enable the next button
       $(".next-cart-btn").prop("disabled", false);
       $(".border.p-3.bg-white span.text-center").html("<b>Ready to go!</b>");
-  } else if (mealPlan < mealCount) {
-    console.log("Meal Plan", mealPlan);
-    console.log("Meal Count", mealCount);
+    } else if (mealPlan < mealCount) {
+      console.log("Meal Plan", mealPlan);
+      console.log("Meal Count", mealCount);
       // Disable the next button
       $(".next-cart-btn").prop("disabled", true);
       $(".border.p-3.bg-white span.text-center").html("Please remove <b>" + Math.abs(mealPlan - mealCount) + " meal</b> to continue.");
-  } else if (mealPlan || mealCount) {
-     // Disable the next button
-     $(".next-cart-btn").prop("disabled", true);
-     $(".border.p-3.bg-white span.text-center").html("Please add <b>" + mealPlan + " more</b> meals.");
-  }
+    } else if (mealPlan || mealCount) {
+      // Disable the next button
+      $(".next-cart-btn").prop("disabled", true);
+      $(".border.p-3.bg-white span.text-center").html("Please add <b>" + mealPlan + " more</b> meals.");
+    }
 
     // Update the text in the first list item with the date from local storage
     var deliveryDate = localStorage.getItem("selectedDate");
     if (deliveryDate) {
-        $(".main-cart .delivery-date").html("My Delivery for: <b>" + deliveryDate + "</b>");
+      $(".main-cart .delivery-date").html("My Delivery for: <b>" + deliveryDate + "</b>");
     }
-    
-     // Move to the next step (day-step)
-     $("#final-project section[data-step='meals-step']").show();
-     $("#final-project section[data-step='day-step']").hide();
-     // Highlight the navigation option for the current step
-     highlightNavOption("meals-step");
-     // Update the current step
-     currentStep = 2;
-     // Add the current step to the visited steps array
-     visitedSteps.push("day-step");
-     // Update the navigation links
-     updateNavigation();
+
+    // Move to the next step (day-step)
+    $("#final-project section[data-step='meals-step']").show();
+    $("#final-project section[data-step='day-step']").hide();
+    // Highlight the navigation option for the current step
+    highlightNavOption("meals-step");
+    // Update the current step
+    currentStep = 2;
+    // Add the current step to the visited steps array
+    visitedSteps.push("day-step");
+    // Update the navigation links
+    updateNavigation();
   });
 
   // Variable to track if the order summary has been added
@@ -204,7 +207,7 @@ $('.close-cart-icon').on('click', function () {
     var specialMealCount = 0;
 
     // Calculate counts based on meal type
-    $('.main-cart .list-group-item').each(function() {
+    $('.main-cart .list-group-item').each(function () {
       if ($(this).find('span').css('color') === 'rgb(255, 255, 255)') { // Special meal
         specialMealCount++;
       } else {
@@ -254,7 +257,7 @@ $('.close-cart-icon').on('click', function () {
   }
 
   // Function to handle the click event on the clear all button
-  $(document).on('click', '.clear-all-btn', function() {
+  $(document).on('click', '.clear-all-btn', function () {
     // Remove all list items except the first one (which contains the clear button)
     $('.main-cart .list-group-item').not(':first').remove();
 
@@ -271,84 +274,84 @@ $('.close-cart-icon').on('click', function () {
     updateOrderSummary();
   });
 
-  // Function to add a meal to the cart
-  function addMealToCart(mealTitle, isSpecial) {
-    // Check if the order summary has already been added
-    if (!orderSummaryAdded) {
-      // Add the order summary to the cart
-      $('.main-cart .list-group').append(`
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span class="clear-all-btn">Clear All</span>
-          <span class="order-summary">
-            <span class="meal-count"></span> -
-            Subtotal: <span class="subtotal-meal"></span>
-          </span>
-        </li>
-      `);
+  // // Function to add a meal to the cart
+  // function addMealToCart(mealTitle, isSpecial) {
+  //   // Check if the order summary has already been added
+  //   if (!orderSummaryAdded) {
+  //     // Add the order summary to the cart
+  //     $('.main-cart .list-group').append(`
+  //       <li class="list-group-item d-flex justify-content-between align-items-center">
+  //         <span class="clear-all-btn">Clear All</span>
+  //         <span class="order-summary">
+  //           <span class="meal-count"></span> -
+  //           Subtotal: <span class="subtotal-meal"></span>
+  //         </span>
+  //       </li>
+  //     `);
 
-      // Set the flag to indicate that the order summary has been added
-      orderSummaryAdded = true;
-    }
+  //     // Set the flag to indicate that the order summary has been added
+  //     orderSummaryAdded = true;
+  //   }
 
-    // Determine the price of the meal based on whether it is a special meal or not
-    var mealPrice = isSpecial ? 11.49 : 14;
+  //   // Determine the price of the meal based on whether it is a special meal or not
+  //   var mealPrice = isSpecial ? 11.49 : 14;
 
-    // Create the new list item
-    var listItem = `
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        ${mealTitle}
-        <span class="badge badge-primary badge-pill">${isSpecial ? '$11.49' : '$14'}</span>
-      </li>
-    `;
+  //   // Create the new list item
+  //   var listItem = `
+  //     <li class="list-group-item d-flex justify-content-between align-items-center">
+  //       ${mealTitle}
+  //       <span class="badge badge-primary badge-pill">${isSpecial ? '$11.49' : '$14'}</span>
+  //     </li>
+  //   `;
 
-    // Add the new list item to the cart
-    $('.main-cart .list-group-item').first().after(listItem);
+  //   // Add the new list item to the cart
+  //   $('.main-cart .list-group-item').first().after(listItem);
 
-    // Increment the total price
-    totalPrice += mealPrice;
+  //   // Increment the total price
+  //   totalPrice += mealPrice;
 
-    // Update the subtotal price in local storage
-    localStorage.setItem("totalPrice", totalPrice);
+  //   // Update the subtotal price in local storage
+  //   localStorage.setItem("totalPrice", totalPrice);
 
-    // Update the order summary to reflect the changes
-    updateOrderSummary();
-  }
+  //   // Update the order summary to reflect the changes
+  //   updateOrderSummary();
+  // }
 
-  // Function to handle the click event on a meal item
-  $(".meal-item").on("click", function () {
-    // Get the meal title
-    var mealTitle = $(this).data("meal-title");
-    // Get the special meal flag
-    var isSpecial = $(this).data("special-meal");
+  // // Function to handle the click event on a meal item
+  // $(".meal-item").on("click", function () {
+  //   // Get the meal title
+  //   var mealTitle = $(this).data("meal-title");
+  //   // Get the special meal flag
+  //   var isSpecial = $(this).data("special-meal");
 
-    // Add the meal to the cart
-    addMealToCart(mealTitle, isSpecial);
-  });
+  //   // Add the meal to the cart
+  //   addMealToCart(mealTitle, isSpecial);
+  // });
 
   // Function to handle the click event on the minus icon
-  $(document).on('click', '.fa-minus', function() {
+  $(document).on('click', '.fa-minus', function () {
     // Find the parent list item
     var listItem = $(this).closest('.list-group-item');
     listItem.remove();
     updateOrderSummary();
   });
 
-  $(document).on('click', '.fa-plus', function() {
+  $(document).on('click', '.fa-plus', function () {
     // Find the parent list item
     var listItem = $(this).closest('.list-group-item');
-    
+
     // Clone the list item
     var clonedItem = listItem.clone();
-  
+
     // Append the cloned item before the last list item
     listItem.parent().find('li:last-child').before(clonedItem);
-  
+
     // Update the order summary
     updateOrderSummary();
   });
-  
 
-  $('.next-cart-btn').click(function(){
+
+  $('.next-cart-btn').click(function () {
     // Retrieve the selected delivery date
     var selectedDeliveryDate = localStorage.getItem("selectedDate")
 
@@ -373,92 +376,92 @@ $('.close-cart-icon').on('click', function () {
   });
 
   // Function to handle the click event on the "Add" button
-$('.add-btn').click(function() {
-  // Get the meal details from the clicked meal card
-  var mealName;
-  var mealImage = $(this).closest('.meals-cards').find('.card-img-top').attr('src');
+  $('.add-btn').click(function () {
+    // Get the meal details from the clicked meal card
+    var mealName;
+    var mealImage = $(this).closest('.meals-cards').find('.card-img-top').attr('src');
 
-  // Check if it's a special meal card
-  var isSpecialCard = $(this).closest('.meals-cards').hasClass('special-meal-card');
+    // Check if it's a special meal card
+    var isSpecialCard = $(this).closest('.meals-cards').hasClass('special-meal-card');
 
-  // Extract meal name from special meal card
-  if (isSpecialCard) {
-    mealName = $(this).closest('.special-meal-card').find('.card-body .card-title').text().trim();
-  } else {
-    // Extract meal name from regular meal card
-    mealName = $(this).closest('.meals-cards').find('.card-title').text().trim();
-  }
+    // Extract meal name from special meal card
+    if (isSpecialCard) {
+      mealName = $(this).closest('.special-meal-card').find('.card-body .card-title').text().trim();
+    } else {
+      // Extract meal name from regular meal card
+      mealName = $(this).closest('.meals-cards').find('.card-title').text().trim();
+    }
 
-  // Remove "@2x" from the image source
-  mealImage = mealImage.replace('@2x', '');
+    // Remove "@2x" from the image source
+    mealImage = mealImage.replace('@2x', '');
 
-  // Create a new list item with the meal details
-  var listItem = '<li class="list-group-item border-0 m-2 cart-meal-cards" style="' + (isSpecialCard ? 'background-color: black;' : 'background-color: #F3F3F3;') + '">' +
-  '<div style="display: flex; flex-direction: row; justify-content: space-between; background-color: ' + (isSpecialCard ? 'black;' : '#F3F3F3;') + '">' +
-  '<div style="display: flex; flex-direction: row; gap: 3px;">' +
-  '<div class="img-container">' +
-  '<img src="' + mealImage + '" alt="Meal">' +
-  (isSpecialCard ? '<div class="bottom-left border">+$11.49</div>' : '') + // Conditionally add the bottom text
-  '</div>' +
-  '<div class="my-meals-summary-card-li-content">' +
-  '<span style="font-size: 13px; color: ' + (isSpecialCard ? 'white;' : 'black;') + '">' +
-  '<b>' + mealName + '</b>' +
-  '</span>' +
-  '</div>' +
-  '</div>' +
-  '<div class="m-1 p-1" style="display: flex; flex-direction: column; justify-content: start; gap: 1.1rem">' +
-  '<i role="button" class="fa fa-plus" style="color: ' + (isSpecialCard ? 'white;' : '#717171;') + '"></i>' +
-  '<i role="button" class="fa fa-minus" style="color: ' + (isSpecialCard ? 'white;' : '#717171;') + '"></i>' +
-  '</div>' +
-  '</div>' +
-  '</li>';
-
-  // If the order summary hasn't been added yet
-  if (!orderSummaryAdded) {
-    // Add the Order Summary below all selected meals
-    var orderSummary = '<li class="list-group-item border-0 order-summary">' +
-      '<div style="display: flex; flex-direction: column; justify-content: space-between;">' +
-      '<span style="font-size: 14px;">' +
-      '<b>Order Summary</b>' +
-      '</span>' +
-      '<div style="display: flex; flex-direction: row; justify-content: space-between;">' +
-      '<span style="font-size: 14px;" class="meal-count">' +
-      '0 Meals' +
-      '</span>' +
-      '<span style="font-size: 14px;" class="subtotal-meal">' +
-      '$0' +
+    // Create a new list item with the meal details
+    var listItem = '<li class="list-group-item border-0 m-2 cart-meal-cards ' + (isSpecialCard ? 'bg-black' : 'cart-card-bg') + '">' +
+      '<div class="cart-meals '  + (isSpecialCard ? 'bg-black' : 'cart-card-bg') + '">' +
+      '<div class="cart-meals-content">' +
+      '<div class="img-container">' +
+      '<img src="' + mealImage + '" alt="Meal">' +
+      (isSpecialCard ? '<div class="bottom-left border">+$11.49</div>' : '') + // Conditionally add the bottom text
+      '</div>' +
+      '<div class="my-meals-summary-card-li-content">' +
+      '<span class="font-size-13px ' + (isSpecialCard ? 'text-white' : 'text-black') + '">' +
+      '<b>' + mealName + '</b>' +
       '</span>' +
       '</div>' +
-      '<div style="display: flex; flex-direction: row; justify-content: space-between;">' +
-      '<span style="font-size: 14px;">' +
-      'Subtotal' +
-      '</span>' +
-      '<span class="subtotal" style="font-size: 14px;">' +
-      '<b>$0</b>' +
-      '</span>' +
       '</div>' +
-      '<span class="text-center mt-4 mb-4" style="font-size: 12px;">' +
-      'Tax and shipping calculated at checkout' +
-      '</span>' +
+      '<div class="m-1 p-1 cart-meal-icons">' +
+      '<i role="button" class="fa fa-plus" style="color: ' + (isSpecialCard ? 'white;' : '#717171;') + '"></i>' +
+      '<i role="button" class="fa fa-minus" style="color: ' + (isSpecialCard ? 'white;' : '#717171;') + '"></i>' +
+      '</div>' +
       '</div>' +
       '</li>';
 
-    // Add the Order Summary to the cart column
-    $('.main-cart').append(orderSummary);
+    // If the order summary hasn't been added yet
+    if (!orderSummaryAdded) {
+      // Add the Order Summary below all selected meals
+      var orderSummary = '<li class="list-group-item border-0 order-summary">' +
+        '<div class="summary-card">' +
+        '<span class="font-size-14px">' +
+        '<b>Order Summary</b>' +
+        '</span>' +
+        '<div class="cart-meals">' +
+        '<span class="meal-count font-size-14px">' +
+        '0 Meals' +
+        '</span>' +
+        '<span class="subtotal-meal font-size-14px">' +
+        '$0' +
+        '</span>' +
+        '</div>' +
+        '<div class="cart-meals">' +
+        '<span class="font-size-14px">' +
+        'Subtotal' +
+        '</span>' +
+        '<span class="subtotal font-size-14px">' +
+        '<b>$0</b>' +
+        '</span>' +
+        '</div>' +
+        '<span class="text-center mt-4 mb-4 font-size-12px">' +
+        'Tax and shipping calculated at checkout' +
+        '</span>' +
+        '</div>' +
+        '</li>';
 
-    // Set the flag to indicate that the order summary has been added
-    orderSummaryAdded = true;
-  }
+      // Add the Order Summary to the cart column
+      $('.main-cart').append(orderSummary);
 
-  // Add the new list item to the cart column before the Order Summary
-  $('.main-cart .list-group-item:last-child').before(listItem);
+      // Set the flag to indicate that the order summary has been added
+      orderSummaryAdded = true;
+    }
 
-  // Update the total price
-  totalPrice += isSpecialCard ? 11.49 : 14;
+    // Add the new list item to the cart column before the Order Summary
+    $('.main-cart .list-group-item:last-child').before(listItem);
 
-  // Update the order summary
-  updateOrderSummary();
-});
+    // Update the total price
+    totalPrice += isSpecialCard ? 11.49 : 14;
+
+    // Update the order summary
+    updateOrderSummary();
+  });
 
 
   // Function to update the navigation links based on the current step

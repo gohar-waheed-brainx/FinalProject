@@ -53,12 +53,12 @@
                   <img src="./assets/images/4-meals.png" class="card-img-top total-meals-card-img-top" alt="4 Meals">
                 </div>
                 <div class="card-img-overlay meal-plan-card-overlay text-start p-0 m-2">
-                  <p class="offer-text card-title border rounded-pill w-50 text-center bg-white text-black"
-                    style="font-size: 14px;">Save upto 10$</p>
+                  <p class="font-size-14px offer-text card-title border rounded-pill w-50 text-center bg-white text-black"
+                  >Save upto 10$</p>
                 </div>
                 <div class="card-body text-center">
-                  <h5 class="card-title meal-name fw-bolder mb-1">4 Meals <span class="fw-normal per-week-text"
-                      style="font-size: 14px;">(per week)</span></h5>
+                  <h5 class="card-title meal-name fw-bolder mb-1">4 Meals <span class="font-size-14px fw-normal per-week-text"
+                  >(per week)</span></h5>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item bg-transparent border-white p-0">Plan Price: <span
                         class="meal-price-text fw-bold">$56</span></li>
@@ -75,8 +75,8 @@
                   <img src="./assets/images/6-meals.png" class="card-img-top total-meals-card-img-top" alt="6 Meals">
                 </div>
                 <div class="card-body text-center">
-                  <h5 class="card-title meal-name fw-bolder mb-1">6 Meals <span class="fw-normal per-week-text"
-                      style="font-size: 14px;">(per week)</span></h5>
+                  <h5 class="card-title meal-name fw-bolder mb-1">6 Meals <span class="font-size-14px fw-normal per-week-text"
+                  >(per week)</span></h5>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item bg-transparent border-white p-0">Plan Price: <span
                         class="meal-price-text fw-bold">$84</span></li>
@@ -93,8 +93,8 @@
                   <img src="./assets/images/10-meals.png" class="card-img-top total-meals-card-img-top" alt="10 Meals">
                 </div>
                 <div class="card-body text-center">
-                  <h5 class="card-title meal-name fw-bolder mb-1">10 Meals <span class="fw-normal per-week-text"
-                      style="font-size: 14px;">(per week)</span></h5>
+                  <h5 class="card-title meal-name fw-bolder mb-1">10 Meals <span class="font-size-14px fw-normal per-week-text"
+                  >(per week)</span></h5>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item bg-transparent border-white p-0">Plan Price: <span
                         class="meal-price-text fw-bold">$140</span></li>
@@ -111,8 +111,8 @@
                   <img src="./assets/images/12-meals.png" class="card-img-top total-meals-card-img-top" alt="12 Meals">
                 </div>
                 <div class="card-body text-center">
-                  <h5 class="card-title meal-name fw-bolder mb-1">12 Meals <span class="fw-normal per-week-text"
-                      style="font-size: 14px;">(per week)</span></h5>
+                  <h5 class="card-title meal-name fw-bolder mb-1">12 Meals <span class="font-size-14px fw-normal per-week-text"
+                  >(per week)</span></h5>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item bg-transparent border-white p-0">Plan Price: <span
                         class="meal-price-text fw-bold">$168</span></li>
@@ -138,38 +138,9 @@
         </h1>
         <div class="delievery-dates-container container p-0 ml-2">
           <div class="card meal-delievery-card mt-4 border-0">
-            <div style="overflow-y: auto;">
-              <ul class="list-group list-group-flush text-start">
-                <div class="delievery-date-btn-container clicked-parent">
-                  <li class="delievery-date-btn delievery-dates-li clicked list-group-item">
-                    <div class="delievery-date-most-popular">
-                      <span><span class="fw-bold"></span></span>
-                      <span class="p-1 delievery-date-most-popular-text">
-                        <i class="fa fa-star-o"></i>
-                        <span class="ml-2"></span>
-                      </span>
-                    </div>
-                  </li>
-                </div>
-                <li class="delievery-date-btn delievery-dates-li list-group-item"><span class="fw-bold"></span> ,
-                </li>
-                <li class="delievery-date-btn delievery-dates-li list-group-item"><span class="fw-bold"></span>
-                </li>
-                <li class="delievery-date-btn delievery-dates-li list-group-item"><span class="fw-bold"></span>
-                </li>
-                <li class="delievery-date-btn delievery-dates-li list-group-item"><span class="fw-bold"></span> ,
-                </li>
-                <li class="delievery-date-btn delievery-dates-li list-group-item"><span class="fw-bold"></span>
-                </li>
-                <li class="delievery-date-btn delievery-dates-li list-group-item"><span class="fw-bold"></span> ,
-                </li>
-                <li class="delievery-date-btn delievery-dates-li list-group-item"><span class="fw-bold"></span> ,
-                </li>
-                <li class="delievery-date-btn delievery-dates-li list-group-item"><span class="fw-bold"></span> ,
-                </li>
-                <li class="delievery-date-btn delievery-dates-li list-group-item"><span class="fw-bold"></span>
-                </li>
-              </ul>
+            <div class="meal-delievery-card-overflow">
+                <ul class="list-group list-group-flush text-start" id="delivery-dates-list">
+                </ul>
             </div>
           </div>
           <div data-step-action="next" class="step-btn">
@@ -177,8 +148,8 @@
               Next
             </button>
           </div>
-          <p class="mt-3" style="font-size: 10px;">
-            First Delievery Date: <span class="fw-bold first-delivery-date">Monday, May 27</span>
+          <p class="mt-3 font-size-10px">
+            First Delievery Date: <span class="fw-bold first-delivery-date"></span>
           </p>
         </div>
         <hr class="m-5 delievery-day-hr">
@@ -196,7 +167,7 @@
               </h2>
               <div id="flush-collapseOne" class="accordion-collapse collapse fw-normal"
                 aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body text-start" style="font-size: 16px;">The majority of our meals are single
+                <div class="accordion-body text-start font-size-16px">The majority of our meals are single
                   serving and meant to feed an average adult. We also offer multi-serve proteins and sides, which are
                   designed to feed multiple people for extra mealtime flexibility. These delicious, ready-to-heat
                   options can help you bulk up existing meals, simplify home cooking, or even build an entire meal—the
@@ -215,7 +186,7 @@
               </h2>
               <div id="flush-collapseTwo" class="accordion-collapse collapse fw-normal"
                 aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body text-start" style="font-size: 16px;">The majority of our meals are single
+                <div class="accordion-body text-start font-size-16px">The majority of our meals are single
                   serving and meant to feed an average adult. We also offer multi-serve proteins and sides, which are
                   designed to feed multiple people for extra mealtime flexibility. These delicious, ready-to-heat
                   options can help you bulk up existing meals, simplify home cooking, or even build an entire meal—the
@@ -234,7 +205,7 @@
               </h2>
               <div id="flush-collapseThree" class="accordion-collapse collapse fw-normal"
                 aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body text-start" style="font-size: 16px;">The majority of our meals are single
+                <div class="accordion-body text-start font-size-16px">The majority of our meals are single
                   serving and meant to feed an average adult. We also offer multi-serve proteins and sides, which are
                   designed to feed multiple people for extra mealtime flexibility. These delicious, ready-to-heat
                   options can help you bulk up existing meals, simplify home cooking, or even build an entire meal—the
@@ -253,7 +224,7 @@
               </h2>
               <div id="flush-collapseFour" class="accordion-collapse collapse fw-normal"
                 aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body text-start" style="font-size: 16px;">The majority of our meals are single
+                <div class="accordion-body text-start font-size-16px">The majority of our meals are single
                   serving and meant to feed an average adult. We also offer multi-serve proteins and sides, which are
                   designed to feed multiple people for extra mealtime flexibility. These delicious, ready-to-heat
                   options can help you bulk up existing meals, simplify home cooking, or even build an entire meal—the
@@ -272,7 +243,7 @@
               </h2>
               <div id="flush-collapseFive" class="accordion-collapse collapse fw-normal"
                 aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body text-start" style="font-size: 16px;">The majority of our meals are single
+                <div class="accordion-body text-start font-size-16px">The majority of our meals are single
                   serving and meant to feed an average adult. We also offer multi-serve proteins and sides, which are
                   designed to feed multiple people for extra mealtime flexibility. These delicious, ready-to-heat
                   options can help you bulk up existing meals, simplify home cooking, or even build an entire meal—the
@@ -291,7 +262,7 @@
               </h2>
               <div id="flush-collapseSix" class="accordion-collapse collapse fw-normal"
                 aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body text-start" style="font-size: 16px;">The majority of our meals are single
+                <div class="accordion-body text-start font-size-16px">The majority of our meals are single
                   serving and meant to feed an average adult. We also offer multi-serve proteins and sides, which are
                   designed to feed multiple people for extra mealtime flexibility. These delicious, ready-to-heat
                   options can help you bulk up existing meals, simplify home cooking, or even build an entire meal—the
@@ -310,7 +281,7 @@
               </h2>
               <div id="flush-collapseSeven" class="accordion-collapse collapse fw-normal"
                 aria-labelledby="flush-headingSeven" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body text-start" style="font-size: 16px;">The majority of our meals are single
+                <div class="accordion-body text-start font-size-16px">The majority of our meals are single
                   serving and meant to feed an average adult. We also offer multi-serve proteins and sides, which are
                   designed to feed multiple people for extra mealtime flexibility. These delicious, ready-to-heat
                   options can help you bulk up existing meals, simplify home cooking, or even build an entire meal—the
@@ -327,7 +298,7 @@
     <section id="meals" data-step="meals-step">
       <div>
         <div class="row">
-          <div class="col-lg-9 col-md-8 overflow-auto" style="max-height: calc(100vh - 58px) !important;">
+          <div class="col-lg-9 col-md-8 overflow-auto section-3-height">
             <div id="meals-container" class="meals-cards-row mt-2 mb-0">
               <!-- Cards will be injected here by JavaScript -->
             </div>
@@ -336,11 +307,11 @@
             <div class="cart-column card border-0 shadow-sm bg-body rounded h-100">
               <ul class="list-group list-group-flush cart-items">
                 <div class="main-cart collapsed-cart">
-                  <span class="close-cart-icon" style="display: none;"></span>
+                  <span class="close-cart-icon"></span>
                   <li class="list-group-item">
                     <div class="cart-summary-li">
-                      <span class="delivery-date" style="font-size: 12px;">
-                        My Delivery for : <b>Monday, May 27</b>
+                      <span class="delivery-date font-size-12px">
+                        My Delivery for : <b></b>
                       </span>
                       <span class="clear-all-btn">
                         <u>Clear all</u>
@@ -352,12 +323,12 @@
               </ul>
               <div class="border p-3 bg-white bottom-cart">
                 <div class="bottom-cart-content">
-                  <span class="cart-subtotal" style="font-size: 14px;">
-                    Subtotal <span style="color: #D75D33;">$78.98</span>
+                  <span class="cart-subtotal font-size-14px">
+                    Subtotal <span class="text-color-orange">$78.98</span>
                   </span>
-                  <div class="border cart-icon rounded-pill" style="padding: 0 12px">
-                    <img src="./assets/images/cart-icon.svg" alt="Cart Icon" style="height: 15px; width: 11px;">
-                    <span class="cart-icon-count" style="color: #D75D33; font-size: 13px;">4</span>
+                  <div class="border cart-icon rounded-pill">
+                    <img src="./assets/images/cart-icon.svg" alt="Cart Icon" class="cart-icon-img">
+                    <span class="cart-icon-count">4</span>
                   </div>
                 </div>
                 <div data-step-action="next" class="step-btn">
@@ -366,7 +337,7 @@
                     Next
                   </button>
                 </div>
-                <span class="text-center" style="color: #D75D33;">Ready to go!</span>
+                <span class="text-center text-color-orange">Ready to go!</span>
               </div>
             </div>
           </div>
@@ -455,12 +426,11 @@
             <ul class="list-group list-group-flush">
               <li class="list-group-item">
                 <button id="promo-code-button" class="promo-code btn btn-link m-0 p-0">+ Add Promo Code</button>
-                <input id="promo-code-input" type="text" class="form-control" placeholder="Enter Promo Code"
-                  style="display: none;">
+                <input id="promo-code-input" type="text" class="form-control promo-code-input-field" placeholder="Enter Promo Code">
               </li>
               <li class="list-group-item">
-                <label for="delievery-date" class="form-label fw-bold" style="font-size: 14px;">Delievery Date</label>
-                <input type="text" class="form-control bg-transparent" id="delievery-date" value="Monday Jun, 19"
+                <label for="delievery-date" class="form-label fw-bold font-size-14px">Delievery Date</label>
+                <input type="text" class="form-control bg-transparent" id="delievery-date" value="Day Month, Date"
                   readonly>
               </li>
               <li class="list-group-item">
@@ -498,7 +468,7 @@
                   <span class="fw-bold">
                     Total
                   </span>
-                  <span id="totalOrderSummary" class="fw-bold" style="color: #D75D33;">
+                  <span id="totalOrderSummary" class="fw-bold text-color-orange">
                     $98.96
                   </span>
                 </div>
@@ -519,7 +489,7 @@
                   </div>
                   <img src="./assets/images/1.png" alt="Meal Picture">
                   <span class="my-meals-summary-card-li-content">
-                    <span class="fw-bold" style="font-size: 14px;">
+                    <span class="fw-bold font-size-14px">
                       Mix Veggies
                     </span>
                     <span class="my-meals-summary-ingredients">
@@ -537,7 +507,7 @@
                   </div>
                   <img src="./assets/images/2.png" alt="Meal Picture">
                   <span class="my-meals-summary-card-li-content">
-                    <span class="fw-bold" style="font-size: 14px;">
+                    <span class="fw-bold font-size-14px">
                       Protein-Packed Chicken Salad
                     </span>
                     <span class="my-meals-summary-ingredients">
@@ -546,7 +516,7 @@
                   </span>
                 </div>
               </li>
-              <li class="list-group-item p-0" style="background-color: black !important;">
+              <li class="list-group-item p-0 bg-black">
                 <div class="my-meals-summary-card-li">
                   <div class="my-meals-summary-card-li-quantity">
                     <span class="fw-bold text-white">
@@ -558,7 +528,7 @@
                     <div class="bottom-left border">+ $11.49</div>
                   </div>
                   <span class="my-meals-summary-card-li-content">
-                    <span class="fw-bold text-white" style="font-size: 14px;">
+                    <span class="fw-bold text-white font-size-14px">
                       Super-Grain Snacks Bowl
                     </span>
                     <span class="my-meals-summary-ingredients text-white">
@@ -588,7 +558,7 @@
                 </h2>
                 <div id="flush-collapseOne" class="accordion-collapse collapse fw-normal"
                   aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body text-start" style="font-size: 16px;">The majority of our meals are single
+                  <div class="accordion-body text-start font-size-16px">The majority of our meals are single
                     serving and meant to feed an average adult. We also offer multi-serve proteins and sides, which are
                     designed to feed multiple people for extra mealtime flexibility. These delicious, ready-to-heat
                     options
@@ -611,7 +581,7 @@
                 </h2>
                 <div id="flush-collapseTwo" class="accordion-collapse collapse fw-normal"
                   aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body text-start" style="font-size: 16px;">The majority of our meals are single
+                  <div class="accordion-body text-start font-size-16px">The majority of our meals are single
                     serving and meant to feed an average adult. We also offer multi-serve proteins and sides, which are
                     designed to feed multiple people for extra mealtime flexibility. These delicious, ready-to-heat
                     options
@@ -634,7 +604,7 @@
                 </h2>
                 <div id="flush-collapseThree" class="accordion-collapse collapse fw-normal"
                   aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body text-start" style="font-size: 16px;">The majority of our meals are single
+                  <div class="accordion-body text-start font-size-16px">The majority of our meals are single
                     serving and meant to feed an average adult. We also offer multi-serve proteins and sides, which are
                     designed to feed multiple people for extra mealtime flexibility. These delicious, ready-to-heat
                     options
@@ -657,7 +627,7 @@
                 </h2>
                 <div id="flush-collapseFour" class="accordion-collapse collapse fw-normal"
                   aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body text-start" style="font-size: 16px;">The majority of our meals are single
+                  <div class="accordion-body text-start font-size-16px">The majority of our meals are single
                     serving and meant to feed an average adult. We also offer multi-serve proteins and sides, which are
                     designed to feed multiple people for extra mealtime flexibility. These delicious, ready-to-heat
                     options
@@ -680,7 +650,7 @@
                 </h2>
                 <div id="flush-collapseFive" class="accordion-collapse collapse fw-normal"
                   aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body text-start" style="font-size: 16px;">The majority of our meals are single
+                  <div class="accordion-body text-start font-size-16px">The majority of our meals are single
                     serving and meant to feed an average adult. We also offer multi-serve proteins and sides, which are
                     designed to feed multiple people for extra mealtime flexibility. These delicious, ready-to-heat
                     options
@@ -703,7 +673,7 @@
                 </h2>
                 <div id="flush-collapseSix" class="accordion-collapse collapse fw-normal"
                   aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body text-start" style="font-size: 16px;">The majority of our meals are single
+                  <div class="accordion-body text-start font-size-16px">The majority of our meals are single
                     serving and meant to feed an average adult. We also offer multi-serve proteins and sides, which are
                     designed to feed multiple people for extra mealtime flexibility. These delicious, ready-to-heat
                     options
@@ -726,7 +696,7 @@
                 </h2>
                 <div id="flush-collapseSeven" class="accordion-collapse collapse fw-normal"
                   aria-labelledby="flush-headingSeven" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body text-start" style="font-size: 16px;">The majority of our meals are single
+                  <div class="accordion-body text-start font-size-16px">The majority of our meals are single
                     serving and meant to feed an average adult. We also offer multi-serve proteins and sides, which are
                     designed to feed multiple people for extra mealtime flexibility. These delicious, ready-to-heat
                     options
